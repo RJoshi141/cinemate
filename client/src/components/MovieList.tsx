@@ -16,6 +16,7 @@ const MovieList: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [query, setQuery] = useState<string>(''); // Search query state
 
   useEffect(() => {
     const apiKey = 'ce08d866531db79a3a3f6c6fa0728fc7'; // TMDb API key
@@ -36,8 +37,16 @@ const MovieList: React.FC = () => {
         }
         setLoading(false);
       });
-    
   }, []);
+
+  // Filter movies based on the search query
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(query.toLowerCase())
+  );
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value); // Update the search query
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -45,8 +54,18 @@ const MovieList: React.FC = () => {
   return (
     <div className="movie-list">
       <h1>Popular Movies</h1>
+
+      {/* Search Input */}
+      <input
+        type="text"
+        placeholder="Search movies..."
+        value={query}
+        onChange={handleSearch}
+        className="search-input"
+      />
+
       <div className="movies">
-        {movies.map((movie) => (
+        {filteredMovies.map((movie) => (
           <div key={movie.id} className="movie-card">
             <img
               src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'path_to_fallback_image.jpg'}
@@ -63,7 +82,5 @@ const MovieList: React.FC = () => {
     </div>
   );
 };
-
-
 
 export default MovieList;
