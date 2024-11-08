@@ -146,13 +146,14 @@ const MovieDetail: React.FC = () => {
           <ul>
             {cast.map((member) => (
               <li key={member.id}>
-                {member.profile_path && (
-                  <img
-                    src={`https://image.tmdb.org/t/p/w200${member.profile_path}`}
-                    alt={member.name}
-                    className="cast-image"
-                  />
-                )}
+                <Link to={`/actor/${member.id}/${member.name}`}>
+                  {member.profile_path && (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w200${member.profile_path}`}
+                      alt={member.name}
+                      className="cast-image"/>
+                      )}
+                      </Link>
                 <p><strong>{member.name}</strong> as {member.character}</p>
               </li>
             ))}
