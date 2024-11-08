@@ -1,13 +1,16 @@
-import logo from './logo.svg';
+// src/App.tsx
+
 import React from 'react';
 import './App.css';
-import MovieList from './components/MovieList'; // Import MovieList component
+import MovieList from './components/MovieList';  // Import MovieList component
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <h1>Cinemate</h1>
-      <MovieList /> {/* Render MovieList here */}
+      <header className="App-header">
+        <h1>Cinemate</h1>
+      </header>
+      <MovieList />  {/* Display the MovieList component */}
     </div>
   );
 }
