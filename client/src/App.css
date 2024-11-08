@@ -145,6 +145,75 @@ h1 {
   color: #333;
 }
 
+
+/* Styles for the recommended movies section */
+.recommendations {
+  margin-top: 30px;
+}
+
+.recommendations h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.recommendations-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.recommendations-list .movie-card {
+  width: 140px; /* Slightly reduced width */
+  flex-shrink: 0;
+  height: 225px;
+  text-align: center;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.recommendations-list .movie-card:hover {
+  transform: translateY(-3px); /* Subtle hover effect */
+}
+
+.recommendations-list .movie-card img {
+  width: 100%;
+  height: 180px; /* Reduced height for a more compact look */
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.recommendations-list .movie-card h3 {
+  font-size: 13px;
+  margin-top: -13px;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Optional: Styling for the scrollable list */
+.recommendations-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.recommendations-list::-webkit-scrollbar-thumb {
+  background-color: #94defe;
+  border-radius: 5px;
+}
+
+.recommendations-list::-webkit-scrollbar-track {
+  background: #f6f6f6;
+}
+
+
+
+
+
 /* Responsive Layout */
 @media (max-width: 600px) {
   .movie-card {
