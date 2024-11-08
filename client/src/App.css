@@ -2,90 +2,9 @@
 .App {
   text-align: center;
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  background-color: #1e1e1e;
   padding: 20px;
 }
-/* Common Styling for Movie and Actor Movies List and Cards */
-.movie-list, .actor-movies {
-  padding: 20px;
-  max-width: 100%;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.movies, .actor-movies .movies {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-.movie-card, .actor-movies .movie-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 215px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 500px;
-}
-
-.movie-card:hover, .actor-movies .movie-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.movie-poster, .actor-movies .movie-poster {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-bottom: 2px solid #eee;
-}
-
-.movie-card h2, .actor-movies h1, .actor-movies .movie-card h3 {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #333;
-  text-decoration: none;
-}
-
-.movie-overview, .actor-movies .movie-overview {
-  font-size: 14px;
-  color: #666;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  display: box;
-  line-clamp: 3;
-  box-orient: vertical;
-}
-
-.movie-card p, .actor-movies .movie-card p {
-  font-size: 14px;
-  color: #666;
-}
-
-.movie-card a, .actor-movies .movie-card a {
-  text-decoration: none;
-}
-
-/* Specific Styles for Actor Movies */
-.actor-movies h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.actor-movies .genre-dropdown {
-  margin-bottom: 20px;
-}
-
 
 /* Styling for loading and error messages with spinner */
 .loading {
@@ -104,8 +23,8 @@
   border: 3px solid #00aeff;
   border-top: 3px solid transparent;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   animation: spin 0.8s linear infinite;
 }
 
@@ -120,6 +39,97 @@
   text-align: center;
 }
 
+.movie-list h1 {
+  color: white;
+}
+
+
+
+
+/* Common Styling for Movie and Actor Movies List and Cards */
+.movie-list, .actor-movies {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.movies, .actor-movies .movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.movie-card, .actor-movies .movie-card {
+  background-color: #222;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 215px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 500px;
+}
+
+.movie-card:hover, .actor-movies .movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.movie-poster, .actor-movies .movie-poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 2px solid #444;
+}
+
+.movie-card h2, .actor-movies h1, .actor-movies .movie-card h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.movie-overview, .actor-movies .movie-overview {
+  font-size: 14px;
+  color: #ccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: box;
+  line-clamp: 3;
+  box-orient: vertical;
+}
+
+.movie-card p, .actor-movies .movie-card p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.movie-card a, .actor-movies .movie-card a {
+  text-decoration: none;
+  color: #00aeff;
+}
+
+/* Specific Styles for Actor Movies */
+.actor-movies h1 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.actor-movies .genre-dropdown {
+  margin-bottom: 20px;
+}
+
+
+
+
 /* Container for search and filter inputs */
 .search-filter {
   display: flex;
@@ -129,14 +139,15 @@
   margin-bottom: 20px;
 }
 
-/* Search input */
 .search-input {
   width: 250px;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   font-size: 16px;
   transition: all 0.1s ease-in-out;
+  background-color: #222;
+  color: #fff;
 }
 
 .search-input:focus {
@@ -144,14 +155,19 @@
   outline: none;
 }
 
+
+
+
 /* Genre dropdown */
 .genre-dropdown {
   width: 170px;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   font-size: 16px;
   transition: all 0.1s ease-in-out;
+  background-color: #222;
+  color: #fff;
 }
 
 .genre-dropdown:focus {
@@ -160,14 +176,14 @@
 }
 
 
+
 /* Movie Detail Styling */
 .movie-detail {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #333;
   padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -175,9 +191,9 @@
 }
 
 .movie-detail img {
-  width: 100%; /* Ensure the image takes the full width */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 400px; /* Limit the width of the image */
+  width: 100%; 
+  height: auto; 
+  max-width: 400px;
   object-fit: cover;
   margin-bottom: 20px;
   margin-left: 10px;
@@ -185,18 +201,20 @@
 
 .movie-detail h1 {
   font-size: 2rem;
-  color: #333;
+  color: #fff;
 }
 
 .movie-detail p {
   font-size: 1rem;
-  color: #666;
+  color: #ccc;
   line-height: 1.6;
 }
 
 .movie-detail p strong {
-  color: #333;
+  color: #fff;
 }
+
+
 
 /* Trailer Section */
 .trailer-section, .cast-section, .recommendations {
@@ -208,6 +226,7 @@
 .trailer-section h2, .cast-section h2, .recommendations h2 {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 .trailer-section iframe {
@@ -216,6 +235,9 @@
   height: 420px;
   border-radius: 5px;
 }
+
+
+
 
 /* Cast Section */
 .cast-section ul {
@@ -228,15 +250,18 @@
 
 .cast-image {
   border-radius: 50% !important;
-  width: 140px !important;  /* Set a fixed width */
-  height: 180px !important;  /* Set a fixed height */
-  object-fit: cover;  /* Ensure the image fills the container without distortion */
+  width: 140px !important;  
+  height: 180px !important;  
+  object-fit: cover;  /* image fills the container without distortion */
 }
 
 .cast-section p {
   font-size: 0.9rem;
-  color: #333;
+  color: #fff;
 }
+
+
+
 
 /* Recommended Movies Section */
 .recommendations-list {
@@ -252,28 +277,28 @@
   height: 225px;
   text-align: center;
   padding: 10px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #222;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+
 }
 
 .recommendations-list .movie-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
 }
 
 .recommendations-list .movie-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-radius: 6px;
+  margin-left: 0 !important;
 }
 
 .recommendations-list .movie-card h3 {
   font-size: 13px;
   margin-top: -13px;
-  color: #333;
+  color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -281,17 +306,20 @@
 
 /* Optional: Styling for the scrollable list */
 .recommendations-list::-webkit-scrollbar {
-  height: 8px;
+  height: 5px;
 }
 
 .recommendations-list::-webkit-scrollbar-thumb {
-  background-color: #94defe;
-  border-radius: 5px;
+  background-color: #27beff;
+  border-radius: 5px !important;
 }
 
 .recommendations-list::-webkit-scrollbar-track {
-  background: #f6f6f6;
+  background: #dbdbdb;
+  border-radius: 5px !important;
 }
+
+
 
 
 
