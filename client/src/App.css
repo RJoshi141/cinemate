@@ -20,34 +20,31 @@
 
 .movie-card {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 200px;
+  width: 215px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 500px;
+  
 }
-
 .movie-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
-
 .movie-poster {
   width: 100%;
   height: 300px;
   object-fit: cover;
   border-bottom: 2px solid #eee;
 }
-
 .movie-card h2 {
   font-size: 18px;
   margin-top: 10px;
   color: #333;
   text-decoration: none;
 }
-
 .movie-overview {
   font-size: 14px;
   color: #666;
@@ -60,16 +57,13 @@
   line-clamp: 3;
   box-orient: vertical;
 }
-
 .movie-card p {
   font-size: 14px;
   color: #666;
 }
-
 .movie-card a {
   text-decoration: none;
 }
-
 h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -161,6 +155,46 @@ h1 {
 .movie-detail p strong {
   color: #333;
 }
+
+
+/* Trailer Styling */
+.trailer-section, .cast-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.trailer-section h2, .cast-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.trailer-section iframe {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 780px;
+  height: 420px;
+}
+
+.cast-section ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cast-image {
+  border-radius: 5px;
+  max-width: 120px;
+  max-height: 10px;
+}
+
+.cast-section p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+
 
 /* Styles for the recommended movies section */
 .recommendations {
