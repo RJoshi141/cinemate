@@ -1,24 +1,69 @@
-/* src/App.css */
+/* Add this to your App.css or a separate CSS file for better organization */
+
 .App {
   text-align: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
 }
 
 .movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  padding: 20px;
 }
 
-.movie-item {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.movie-card {
+  background-color: white;
   border-radius: 10px;
-  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 200px;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
 }
 
 .movie-poster {
   width: 100%;
-  border-radius: 5px;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 2px solid #eee;
 }
+
+.movie-card h2 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.movie-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Styling for loading and error messages */
+.loading {
+  font-size: 1.5rem;
+  color: #ff6600;
+}
+
+.error {
+  font-size: 1.5rem;
+  color: #ff0000;
+}
+
