@@ -4,5 +4,8 @@
   },
   "scripts": {
     "start": "concurrently \"npm run start --prefix client\" \"npm run dev --prefix server\""
+  },
+  "dependencies": {
+    "react-router-dom": "^6.28.0"
   }
 }
