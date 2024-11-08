@@ -103,17 +103,22 @@ h1 {
   text-align: center;
 }
 
-/* Add styles for the search input */
+/* Container for search and filter inputs */
+.search-filter {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Search input */
 .search-input {
   width: 250px;
   padding: 10px;
-  margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
   transition: all 0.1s ease-in-out;
 }
 
@@ -121,6 +126,23 @@ h1 {
   border-color: #00aeff;
   outline: none;
 }
+
+/* Genre dropdown */
+.genre-dropdown {
+  width: 170px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: all 0.1s ease-in-out;
+}
+
+.genre-dropdown:focus {
+  border-color: #00aeff;
+  outline: none;
+}
+
+
 
 /* Movie Detail Styling */
 .movie-detail {
@@ -134,8 +156,8 @@ h1 {
 }
 
 .movie-detail img {
-  width: 100%;
-  max-height: 500px;
+  width: 20%;
+  height: 20%;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -185,8 +207,9 @@ h1 {
 
 .cast-image {
   border-radius: 5px;
-  max-width: 120px;
-  max-height: 10px;
+  width: 110px !important;  /* Set a fixed width */
+  height: 160px !important;  /* Set a fixed height */
+  object-fit: cover;  /* Ensure the image fills the container without distortion */
 }
 
 .cast-section p {
@@ -205,6 +228,7 @@ h1 {
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .recommendations-list {
