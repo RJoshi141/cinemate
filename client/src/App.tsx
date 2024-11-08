@@ -1,18 +1,18 @@
-// src/App.tsx
-
 import React from 'react';
-import './App.css';
-import MovieList from './components/MovieList';  // Import MovieList component
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MovieList from './components/MovieList';
+import MovieDetail from './components/MovieDetail';
+import './App.css'; // Import the CSS file here
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Cinemate</h1>
-      </header>
-      <MovieList />  {/* Display the MovieList component */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MovieList />} />
+        <Route path="/movie/:id" element={<MovieDetail />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

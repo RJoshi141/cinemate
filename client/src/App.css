@@ -1,5 +1,4 @@
-/* Add this to your App.css or a separate CSS file for better organization */
-
+/* General App Styling */
 .App {
   text-align: center;
   font-family: 'Arial', sans-serif;
@@ -7,6 +6,7 @@
   padding: 20px;
 }
 
+/* Styling movie list and cards */
 .movie-list {
   padding: 20px;
 }
@@ -26,6 +26,7 @@
   width: 200px;
   text-align: center;
   transition: transform 0.3s ease;
+  height: 500px; /* Fixed height for consistent card size */
 }
 
 .movie-card:hover {
@@ -43,11 +44,33 @@
   font-size: 18px;
   margin-top: 10px;
   color: #333;
+  text-decoration: none;
 }
+
+.movie-overview {
+  font-size: 14px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines for WebKit browsers */
+  -webkit-box-orient: vertical;
+
+  /* Additional compatibility for other browsers */
+  display: box;
+  line-clamp: 3; /* Standard, but not widely supported */
+  box-orient: vertical;
+}
+
+
 
 .movie-card p {
   font-size: 14px;
   color: #666;
+}
+
+.movie-card a {
+  text-decoration: none; /* Remove underline on link */
 }
 
 h1 {
@@ -61,10 +84,12 @@ h1 {
   font-size: 1.5rem;
   color: #00aeff;
 }
+
 .error {
   font-size: 1.5rem;
   color: #ff0000;
 }
+
 
 /* Add styles for the search input */
 .search-input {
@@ -77,8 +102,48 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  transition: all 0.1s ease-in-out;
 }
 
+.search-input:focus {
+  border-color: #00aeff;
+  outline: none;
+}
+
+
+/* Movie Detail Styling */
+.movie-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.movie-detail img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.movie-detail h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.movie-detail p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.movie-detail p strong {
+  color: #333;
+}
 
 /* Responsive Layout */
 @media (max-width: 600px) {
