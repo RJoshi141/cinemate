@@ -1,5 +1,3 @@
-// src/components/MovieList.tsx
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -19,20 +17,27 @@ const MovieList: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-      axios
-        .get(`${process.env.REACT_APP_API_URL}/movies`)  // Using the environment variable
-        .then((response) => {
-          setMovies(response.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.error(err);  // Log the actual error to see details
+  useEffect(() => {
+    const apiKey = 'ce08d866531db79a3a3f6c6fa0728fc7'; // TMDb API key
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/movie/popular?api_key=${apiKey}`)
+      .then((response) => {
+        setMovies(response.data.results);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Error fetching movies:', err); // Log the error for debugging
+        if (err.response) {
+          // Check if the error has a response
+          setError(`Error: ${err.response.status} - ${err.response.data.status_message}`);
+        } else {
+          // If no response, set a generic error
           setError('Failed to fetch movie data');
-          setLoading(false);
-        });
-    }, []);
+        }
+        setLoading(false);
+      });
     
+  }, []);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -44,7 +49,7 @@ const MovieList: React.FC = () => {
         {movies.map((movie) => (
           <div key={movie.id} className="movie-card">
             <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'path_to_fallback_image.jpg'}
               alt={movie.title}
               className="movie-poster"
             />
@@ -58,5 +63,7 @@ const MovieList: React.FC = () => {
     </div>
   );
 };
+
+
 
 export default MovieList;
