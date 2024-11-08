@@ -100,18 +100,28 @@ const MovieDetail: React.FC = () => {
 
   return (
     <div className="movie-detail">
-      <h1>{movie.title}</h1>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title}
-        className="movie-poster"
-      />
-      <p>{movie.overview || 'No overview available'}</p>
-      <p><strong>Release Date:</strong> {movie.release_date}</p>
-      <p><strong>Rating:</strong> {movie.vote_average}</p>
-      <p><strong>Certification:</strong> {rating}</p>
-      <p><strong>Genres:</strong> {movie.genres.map((genre) => genre.name).join(', ')}</p>
-      <p><strong>Language:</strong> {movie.original_language}</p>
+      <div className="movie-detail-content" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
+        {/* Movie Poster */}
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          className="movie-poster"
+          style={{ width: '300px', height: 'auto', marginRight: '20px' }}
+        />
+
+        {/* Movie Info */}
+        <div className="movie-info" style={{ maxWidth: '600px' }}>
+          <h1>{movie.title}</h1>
+          <p className="overview">{movie.overview || 'No overview available'}</p>
+          <div className="details">
+            <p><strong>Release Date:</strong> {movie.release_date}</p>
+            <p><strong>Rating:</strong> {movie.vote_average}</p>
+            <p><strong>Certification:</strong> {rating}</p>
+            <p><strong>Genres:</strong> {movie.genres.map((genre) => genre.name).join(', ')}</p>
+            <p><strong>Language:</strong> {movie.original_language}</p>
+          </div>
+        </div>
+      </div>
 
       {/* Trailer Section */}
       {trailer && (

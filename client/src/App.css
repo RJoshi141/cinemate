@@ -27,24 +27,27 @@
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 500px;
-  
 }
+
 .movie-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+
 .movie-poster {
   width: 100%;
   height: 300px;
   object-fit: cover;
   border-bottom: 2px solid #eee;
 }
+
 .movie-card h2 {
   font-size: 18px;
   margin-top: 10px;
   color: #333;
   text-decoration: none;
 }
+
 .movie-overview {
   font-size: 14px;
   color: #666;
@@ -57,13 +60,16 @@
   line-clamp: 3;
   box-orient: vertical;
 }
+
 .movie-card p {
   font-size: 14px;
   color: #666;
 }
+
 .movie-card a {
   text-decoration: none;
 }
+
 h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -143,24 +149,27 @@ h1 {
 }
 
 
-
 /* Movie Detail Styling */
 .movie-detail {
   max-width: 800px;
   margin: 0 auto;
   background-color: #fff;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .movie-detail img {
-  width: 20%;
-  height: 20%;
+  width: 100%; /* Ensure the image takes the full width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 400px; /* Limit the width of the image */
   object-fit: cover;
-  border-radius: 10px;
   margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .movie-detail h1 {
@@ -178,37 +187,38 @@ h1 {
   color: #333;
 }
 
-
-/* Trailer Styling */
-.trailer-section, .cast-section {
-  margin-top: 20px;
+/* Trailer Section */
+.trailer-section, .cast-section, .recommendations {
+  margin-top: 30px;
   text-align: center;
+  width: 100%;
 }
 
-.trailer-section h2, .cast-section h2 {
+.trailer-section h2, .cast-section h2, .recommendations h2 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .trailer-section iframe {
-  border-radius: 10px;
   width: 100%;
-  max-width: 780px;
+  max-width: 780px; /* Limit trailer width */
   height: 420px;
+  border-radius: 5px;
 }
 
+/* Cast Section */
 .cast-section ul {
   list-style-type: none;
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .cast-image {
-  border-radius: 5px;
-  width: 110px !important;  /* Set a fixed width */
-  height: 160px !important;  /* Set a fixed height */
+  border-radius: 50% !important;
+  width: 140px !important;  /* Set a fixed width */
+  height: 180px !important;  /* Set a fixed height */
   object-fit: cover;  /* Ensure the image fills the container without distortion */
 }
 
@@ -217,20 +227,7 @@ h1 {
   color: #333;
 }
 
-
-
-/* Styles for the recommended movies section */
-.recommendations {
-  margin-top: 30px;
-}
-
-.recommendations h2 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
+/* Recommended Movies Section */
 .recommendations-list {
   display: flex;
   overflow-x: auto;
