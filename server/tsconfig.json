@@ -1,10 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true
-  }
+    "target": "ES6",                        // Compile to ES6 JavaScript
+    "module": "commonjs",                   // Use CommonJS for modules (Node.js standard)
+    "outDir": "./dist",                     // Transpile into 'dist' folder
+    "rootDir": "./src",                     // TypeScript source code is in 'src' folder
+    "esModuleInterop": true,                // Enable import compatibility for non-ESM packages
+    "skipLibCheck": true,                   // Skip type checking for declaration files
+    "strict": true,                          // Enable strict type checking options
+    "resolveJsonModule": true               // Allow importing JSON files
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
