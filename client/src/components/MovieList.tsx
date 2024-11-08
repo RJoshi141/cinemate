@@ -48,9 +48,13 @@ const MovieList: React.FC = () => {
     setQuery(event.target.value); // Update the search query
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-
+  if (loading) {
+    return <div className="loading">Loading movies...</div>;
+  }
+  if (error) {
+    return <div className="error">{error}</div>;
+  }
+  
   return (
     <div className="movie-list">
       <h1>Popular Movies</h1>

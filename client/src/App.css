@@ -59,9 +59,8 @@ h1 {
 /* Styling for loading and error messages */
 .loading {
   font-size: 1.5rem;
-  color: #ff6600;
+  color: #00aeff;
 }
-
 .error {
   font-size: 1.5rem;
   color: #ff0000;
@@ -81,16 +80,14 @@ h1 {
 }
 
 
-
+/* Responsive Layout */
 @media (max-width: 600px) {
   .movie-card {
     width: 150px;
   }
-
   .movie-poster {
     height: 250px;
   }
-
   h1 {
     font-size: 1.8rem;
   }
