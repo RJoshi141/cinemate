@@ -82,8 +82,6 @@ const ActorMovies: React.FC = () => {
       <div className="actor-details">
         <div className="actor-info">
           <h2>{actorName}</h2>
-          <p><strong>Born:</strong> Huntsville, Alabama, USA</p>
-
           <div className="bio-container">
             {/* Actor Bio with truncation */}
             <p className={isBioExpanded ? 'bio-expanded' : 'bio-truncated'}>
