@@ -321,6 +321,69 @@
 
 
 
+/* Actor Bio Truncation */
+.actor-info p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* Bio Truncation: Truncated Bio Style */
+.bio-truncated {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limits to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bio Expanded Style */
+.bio-expanded {
+  display: block;
+}
+
+/* Read More / Less Link */
+.read-more {
+  color: #00aeff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.read-more:hover {
+  color: #ffcc00;
+}
+
+/* Actor Profile Image */
+.actor-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Styling for the actor's details section */
+.actor-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.actor-info {
+  width: 65%;
+  text-align: left;
+}
+
+.actor-info h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.actor-info strong {
+  color: #c0ebff;
+}
+
+
+
 
 
 /* Responsive Layout */

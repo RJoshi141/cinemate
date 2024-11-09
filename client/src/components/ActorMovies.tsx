@@ -7,9 +7,9 @@ interface Movie {
   title: string;
   poster_path: string;
   genre_ids?: number[];
-  overview: string;        // Movie plot/summary
-  release_date: string;    // Release date
-  vote_average: number;    // Rating
+  overview: string;
+  release_date: string;
+  vote_average: number;
 }
 
 const ActorMovies: React.FC = () => {
@@ -18,6 +18,9 @@ const ActorMovies: React.FC = () => {
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
   const [genres, setGenres] = useState<{ id: number; name: string }[]>([]);
   const [genre, setGenre] = useState<string>('');
+  const [actorBio, setActorBio] = useState<string>('');
+  const [actorDetails, setActorDetails] = useState<any>(null); // Store actor details
+  const [isBioExpanded, setIsBioExpanded] = useState<boolean>(false); // Track bio expansion state
 
   const apiKey = 'ce08d866531db79a3a3f6c6fa0728fc7';
 
@@ -34,7 +37,6 @@ const ActorMovies: React.FC = () => {
     axios
       .get(`https://api.themoviedb.org/3/person/${actorId}/movie_credits?api_key=${apiKey}`)
       .then((response) => {
-        // Map the data to include only the needed fields in Movie interface
         const moviesData = response.data.cast.map((movie: any) => ({
           id: movie.id,
           title: movie.title,
@@ -49,6 +51,17 @@ const ActorMovies: React.FC = () => {
       .catch((error) => console.error('Error fetching actor movies:', error));
   }, [actorId]);
 
+  // Fetch actor biography and profile details
+  useEffect(() => {
+    axios
+      .get(`https://api.themoviedb.org/3/person/${actorId}?api_key=${apiKey}`)
+      .then((response) => {
+        setActorDetails(response.data); // Store actor details
+        setActorBio(response.data.biography); // Store actor bio
+      })
+      .catch((error) => console.error('Error fetching actor biography:', error));
+  }, [actorId]);
+
   // Filter movies by genre
   useEffect(() => {
     if (genre) {
@@ -59,10 +72,44 @@ const ActorMovies: React.FC = () => {
     }
   }, [genre, movies]);
 
+  // Toggle bio expanded/collapsed
+  const toggleBio = () => {
+    setIsBioExpanded(!isBioExpanded);
+  };
+
   return (
     <div className="actor-movies">
-      <h1>{actorName}'s Movies</h1>
-      
+      <div className="actor-details">
+        <div className="actor-info">
+          <h2>{actorName}</h2>
+          <p><strong>Born:</strong> Huntsville, Alabama, USA</p>
+
+          <div className="bio-container">
+            {/* Actor Bio with truncation */}
+            <p className={isBioExpanded ? 'bio-expanded' : 'bio-truncated'}>
+              {actorBio}
+            </p>
+            {/* Read More / Less Toggle */}
+            {actorBio.length > 200 && (
+              <span className="read-more" onClick={toggleBio}>
+                {isBioExpanded ? 'Read Less' : 'Read More'}
+              </span>
+            )}
+          </div>
+        </div>
+        
+        {/* Actor's Image moved to the right */}
+        <div className="actor-image">
+          {actorDetails && actorDetails.profile_path && (
+            <img 
+              src={`https://image.tmdb.org/t/p/w200${actorDetails.profile_path}`} 
+              alt={actorName} 
+              className="actor-profile-img"
+            />
+          )}
+        </div>
+      </div>
+      <h2>{actorName}'s Movies</h2>
       {/* Genre Filter Dropdown */}
       <select
         value={genre}
@@ -76,6 +123,8 @@ const ActorMovies: React.FC = () => {
           </option>
         ))}
       </select>
+
+      
 
       {/* Movie Cards */}
       <div className="movies">
