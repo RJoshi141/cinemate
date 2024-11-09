@@ -328,6 +328,15 @@
   color: #fff;
 }
 
+/* Style for Actor Name's Movies Heading */
+.actor-movies-heading {
+  color: #00a6ff; 
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
 /* Bio Truncation: Truncated Bio Style */
 .bio-truncated {
   display: -webkit-box;
@@ -356,12 +365,16 @@
 /* Actor Profile Image */
 .actor-image img {
   width: 100%;
-  height: auto;
+  height: 400px;
+  object-fit: cover;
+  image-rendering: auto; /* Ensures smooth rendering for better quality */
 }
+
 
 /* Styling for the actor's details section */
 .actor-details {
   display: flex;
+
   justify-content: space-between;
   margin-bottom: 30px;
   padding: 20px;
@@ -379,9 +392,8 @@
 }
 
 .actor-info strong {
-  color: #c0ebff;
+  color: #f3c305;
 }
-
 
 
 

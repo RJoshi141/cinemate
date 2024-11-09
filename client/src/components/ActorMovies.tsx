@@ -102,14 +102,14 @@ const ActorMovies: React.FC = () => {
         <div className="actor-image">
           {actorDetails && actorDetails.profile_path && (
             <img 
-              src={`https://image.tmdb.org/t/p/w200${actorDetails.profile_path}`} 
+              src={`https://image.tmdb.org/t/p/w500${actorDetails.profile_path}`} 
               alt={actorName} 
               className="actor-profile-img"
             />
           )}
         </div>
       </div>
-      <h2>{actorName}'s Movies</h2>
+      <h2 className="actor-movies-heading">{actorName}'s Movies</h2>
       {/* Genre Filter Dropdown */}
       <select
         value={genre}
