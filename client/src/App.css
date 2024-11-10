@@ -62,10 +62,6 @@
 .movie-list h1 {
   color: white;
 }
-
-
-
-
 /* Common Styling for Movie and Actor Movies List and Cards */
 .movie-list, .actor-movies {
   padding: 20px;

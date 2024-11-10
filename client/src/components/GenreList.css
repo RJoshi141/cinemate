@@ -1,0 +1,31 @@
+.genre-list {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .genre-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .genre-card {
+    background-color: #333;
+    color: #fff;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    width: 200px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .genre-card:hover {
+    background-color: #444;
+  }
+  
+  .genre-card h3 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
