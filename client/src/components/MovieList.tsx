@@ -98,9 +98,9 @@ const MovieList: React.FC = () => {
                 />
               </Link>
               <h2>{movie.title}</h2>
-              <p className="movie-overview">{movie.overview}</p>
               <p><strong>Release Date:</strong> {movie.release_date}</p>
               <p><strong>Rating:</strong> {movie.vote_average}</p>
+              <p className="movie-overview">{movie.overview}</p>
             </div>
           ))
         ) : (
