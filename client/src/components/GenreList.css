@@ -1,31 +1,62 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Disable scrolling */
+
+}
+
 .genre-list {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .genre-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .genre-card {
-    background-color: #333;
-    color: #fff;
-    margin: 15px;
-    padding: 20px;
-    border-radius: 10px;
-    text-decoration: none;
-    width: 200px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .genre-card:hover {
-    background-color: #444;
-  }
-  
-  .genre-card h3 {
-    font-size: 1.2rem;
-    text-align: center;
-  }
-  
+  text-align: center;
+  padding: 20px;
+  max-width: 100%;
+  background-color: #333;
+  min-height: 100vh; /* Ensure the genre list takes full height */
+
+  margin-bottom: 0;
+}
+.genre-list h1{
+  color:#00aeff;
+}
+
+.genre-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow: 1; /* Allow the genre cards section to take up remaining space */
+
+}
+
+.genre-card {
+  background-color: #1d1d1d;
+  color: #fff;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  width: 200px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.genre-card:hover {
+  background-color: #00aeff; /* Blue color on hover */
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 15px rgba(0, 174, 255, 0.5); /* Glowing effect */
+}
+
+.genre-card h3 {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.genre-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.genre-card:hover h3 {
+  color: #fff; /* White text color when hovered */
+}
