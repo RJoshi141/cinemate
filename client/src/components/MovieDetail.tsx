@@ -134,7 +134,7 @@ const MovieDetail: React.FC = () => {
             <strong>Budget:</strong> {movie.budget ? `$${movie.budget.toLocaleString()}` : 'N/A'}<br></br>
             <strong>Director:</strong> {director ? director.name : 'N/A'}<br></br>
             <strong>Producers:</strong> {producers || 'N/A'}<br></br>
-            <strong>Where to Watch: </strong>
+            <strong>Available on: </strong>
               {watchProviders?.flatrate ? (
                 watchProviders.flatrate.map((provider) => provider.provider_name).join(', ')
               ) : 'N/A'}
