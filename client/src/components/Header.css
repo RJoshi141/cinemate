@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 1rem;
+  background-color: #202020;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #ccc;
+  margin-left: 1rem;
+}
+
+.menu-icon {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 5px; /* Move the icon down */
+  transition: color 0.3s ease;
+}
+
+.menu-icon:hover {
+  color: #00ccff;
+}
+
