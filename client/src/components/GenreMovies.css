@@ -128,6 +128,10 @@
   background-color: #1e40af; /* Lighter blue on hover */
   transform: scale(1.05);     /* Slightly enlarges the button */
 }
+.pagination span {
+  color: white;  /* Set the text color to white */
+}
+
 
 /* Disable the "Previous" button when on the first page */
 .pagination button:disabled {

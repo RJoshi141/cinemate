@@ -407,6 +407,64 @@
 }
 
 
+/* Styling for the pagination controls */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* General button styling */
+.pagination button {
+  background-color: #1e3a8a; /* Deep blue background */
+  color: white;               /* White text */
+  border: none;               /* No border */
+  padding: 10px 20px;         /* Padding for the buttons */
+  margin: 0 10px;             /* Space between buttons */
+  font-size: 16px;            /* Font size */
+  border-radius: 5px;         /* Rounded corners */
+  cursor: pointer;           /* Cursor pointer to indicate it's clickable */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+/* Styling when hovering over the buttons */
+.pagination button:hover {
+  background-color: #1e40af; /* Lighter blue on hover */
+  transform: scale(1.05);     /* Slightly enlarges the button */
+}
+
+/* Disable the "Previous" button when on the first page */
+.pagination button:disabled {
+  background-color: #4b6c93;  /* Greyed out button (light blue) */
+  cursor: not-allowed;        /* Change cursor to not-allowed */
+}
+
+/* Styling for "Previous" and "Next" buttons individually */
+.pagination button:first-child {
+  background-color: #2563eb; /* Lighter blue color for Previous */
+}
+
+.pagination button:first-child:hover {
+  background-color: #1d4ed8; /* Darker blue on hover */
+}
+
+.pagination button:last-child {
+  background-color: #3b82f6; /* Lighter blue color for Next */
+}
+
+.pagination button:last-child:hover {
+  background-color: #2563eb; /* Darker blue on hover */
+}
+
+/* Page info styling */
+.page-info {
+  font-size: 16px;
+  color: #fff;
+  margin: 0 10px;           /* Space between page info and buttons */
+}
+
+
 
 /* Responsive Layout */
 @media (max-width: 600px) {
