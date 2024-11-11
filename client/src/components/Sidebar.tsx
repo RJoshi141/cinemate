@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome, FaStar, FaList, FaFilm, FaUser, FaVideo, FaCog, FaInfoCircle } from 'react-icons/fa';
+import { FaHome, FaStar, FaList, FaFilm, FaUser, FaVideo, FaCog, FaInfoCircle, FaQuestionCircle } from 'react-icons/fa';
 import './Sidebar.css';
 
 interface SidebarProps {
@@ -19,8 +19,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <Link to="/genres" onClick={onClose}><FaFilm /> Genres</Link>
         <Link to="/actors" onClick={onClose}><FaUser /> Actors</Link>
         <Link to="/directors" onClick={onClose}><FaVideo /> Directors</Link>
+        <Link to="/quiz" onClick={onClose}><FaQuestionCircle /> Movie Quiz</Link> {/* New link for the quiz */}
         <Link to="/settings" onClick={onClose}><FaCog /> Settings</Link>
         <Link to="/about" onClick={onClose}><FaInfoCircle /> About</Link>
+        
       </nav>
     </div>
   );

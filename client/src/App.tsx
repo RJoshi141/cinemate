@@ -8,6 +8,8 @@ import GenreMovies from './components/GenreMovies'; // Import the GenreMovies co
 import Header from './components/Header';
 import DirectorsList from './components/DirectorsList'; // Import DirectorsList component
 import DirectorMovies from './components/DirectorMovies'; // Import DirectorMovies component
+import MovieQuiz from './components/MovieQuiz'; // Import the MovieQuiz component
+import RecommendationsPage from './components/RecommendationsPage';
 import './App.css';
 
 // Component to control scroll behavior
@@ -39,6 +41,8 @@ const App: React.FC = () => {
         <Route path="/genre/:genreId" element={<GenreMovies />} /> {/* Route to show movies for a selected genre */}
         <Route path="/directors" element={<DirectorsList />} /> {/* Route to the directors list page */}
         <Route path="/director/:directorId" element={<DirectorMovies />} /> {/* Route to show movies for a selected director */}
+        <Route path="/quiz" element={<MovieQuiz />} /> {/* Add the MovieQuiz route */}
+        <Route path="/recommendations" element={<RecommendationsPage />} />
       </Routes>
     </Router>
   );
