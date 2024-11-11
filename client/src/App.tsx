@@ -10,6 +10,7 @@ import DirectorsList from './components/DirectorsList'; // Import DirectorsList 
 import DirectorMovies from './components/DirectorMovies'; // Import DirectorMovies component
 import MovieQuiz from './components/MovieQuiz'; // Import the MovieQuiz component
 import RecommendationsPage from './components/RecommendationsPage';
+import AboutPage from './components/AboutPage';
 import './App.css';
 
 // Component to control scroll behavior
@@ -37,12 +38,14 @@ const App: React.FC = () => {
         <Route path="/" element={<MovieList />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
         <Route path="/actor/:actorId/:actorName" element={<ActorMovies />} />
-        <Route path="/genres" element={<GenreList />} /> {/* Route to the genre list page */}
-        <Route path="/genre/:genreId" element={<GenreMovies />} /> {/* Route to show movies for a selected genre */}
-        <Route path="/directors" element={<DirectorsList />} /> {/* Route to the directors list page */}
-        <Route path="/director/:directorId" element={<DirectorMovies />} /> {/* Route to show movies for a selected director */}
-        <Route path="/quiz" element={<MovieQuiz />} /> {/* Add the MovieQuiz route */}
+        <Route path="/genres" element={<GenreList />} /> 
+        <Route path="/genre/:genreId" element={<GenreMovies />} />
+        <Route path="/directors" element={<DirectorsList />} /> 
+        <Route path="/director/:directorId" element={<DirectorMovies />} />
+        <Route path="/quiz" element={<MovieQuiz />} />
         <Route path="/recommendations" element={<RecommendationsPage />} />
+        <Route path="/about" element={<AboutPage />} /> 
+
       </Routes>
     </Router>
   );

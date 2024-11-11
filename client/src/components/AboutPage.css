@@ -1,0 +1,103 @@
+/* AboutPage.css */
+.about-page {
+    padding: 20px;
+    width: 100%;
+    min-width: 100%; /* Ensure it always stretches to at least the full width */
+    margin: 0; /* Remove the margin */
+    font-family: 'Arial', sans-serif;
+    background-color: #222222; /* Dark background for the whole page */
+    color: #e5e7eb; /* Light text color for readability */
+    box-sizing: border-box; /* Make sure padding doesn't affect the width */
+  }
+  
+  
+  .about-header {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f3f4f6; /* Lighter text for headers */
+    font-weight: 600;
+  }
+  
+  .about-introduction, .about-features, .about-how-it-works, .about-technologies, .about-credits, .about-contact {
+    margin-bottom: 40px;
+    background-color: #374151; /* Darker background for sections */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Softer shadow to give depth */
+  }
+  
+  .about-introduction p, .about-features li, .about-technologies p, .about-how-it-works p {
+    font-size: 1.2rem;
+    color: #e5e7eb; /* Light text for readability */
+    line-height: 1.6;
+  }
+  
+  .about-features ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+  
+  .about-features li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .about-features li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #3b82f6; /* Blue color for list bullets */
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: #f3f4f6; /* Lighter gray for section titles */
+    font-weight: 500;
+  }
+  
+  .about-contact a, .about-credits a {
+    color: #3b82f6; /* Blue color for links */
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .about-contact a:hover, .about-credits a:hover {
+    text-decoration: underline;
+    opacity: 0.8; /* Slight hover effect */
+  }
+  
+  .about-technologies, .about-how-it-works {
+    font-size: 1.1rem;
+    color: #e5e7eb; /* Light text color */
+    line-height: 1.6;
+  }
+  
+  .about-technologies p, .about-how-it-works p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .about-header {
+      font-size: 2rem;
+    }
+  
+    .about-features li {
+      font-size: 1rem;
+    }
+  
+    .about-introduction p, .about-features li, .about-technologies p, .about-how-it-works p {
+      font-size: 1rem;
+    }
+  
+    .about-contact a, .about-credits a {
+      font-size: 1rem;
+    }
+  }
+  
