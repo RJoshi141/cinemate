@@ -117,7 +117,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  display: box;
+  display: flex;
   line-clamp: 3;
   box-orient: vertical;
 }
