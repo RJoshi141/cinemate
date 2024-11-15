@@ -11,6 +11,7 @@ import DirectorMovies from './components/DirectorMovies'; // Import DirectorMovi
 import MovieQuiz from './components/MovieQuiz'; // Import the MovieQuiz component
 import RecommendationsPage from './components/RecommendationsPage';
 import AboutPage from './components/AboutPage';
+import ActorList from './components/ActorList'; // Import the ActorList component
 import './App.css';
 
 // Component to control scroll behavior
@@ -38,6 +39,7 @@ const App: React.FC = () => {
         <Route path="/" element={<MovieList />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
         <Route path="/actor/:actorId/:actorName" element={<ActorMovies />} />
+        <Route path="/actors" element={<ActorList />} />
         <Route path="/genres" element={<GenreList />} /> 
         <Route path="/genre/:genreId" element={<GenreMovies />} />
         <Route path="/directors" element={<DirectorsList />} /> 

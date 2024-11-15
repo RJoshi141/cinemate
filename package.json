@@ -7,6 +7,8 @@
     "start": "concurrently \"npm run start --prefix client\" \"npm run dev --prefix server\""
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "react-router-dom": "^6.28.0"
   }
 }
