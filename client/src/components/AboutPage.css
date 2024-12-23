@@ -80,6 +80,10 @@ h2 {
   margin-bottom: 16px;
   color: #ffffff; /* Clear white for section titles */
   font-weight: 600;
+<<<<<<< HEAD
+=======
+  border-bottom: 2px solid #00ccff; /* Underline for visual separation */
+>>>>>>> dc367d78dc003596ad8bafdd1c7d821b83194078
   padding-bottom: 4px;
 }
 
