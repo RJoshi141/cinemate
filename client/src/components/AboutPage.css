@@ -1,103 +1,110 @@
 /* AboutPage.css */
 .about-page {
-    padding: 20px;
-    width: 100%;
-    min-width: 100%; /* Ensure it always stretches to at least the full width */
-    margin: 0; /* Remove the margin */
-    font-family: 'Arial', sans-serif;
-    background-color: #222222; /* Dark background for the whole page */
-    color: #e5e7eb; /* Light text color for readability */
-    box-sizing: border-box; /* Make sure padding doesn't affect the width */
-  }
-  
-  
+  padding: 20px;
+  width: 100%;
+  min-width: 100%; /* Ensure it always stretches to at least the full width */
+  margin: 0; /* Remove the margin */
+  font-family: 'Arial', sans-serif;
+  background-color: #1a1a1a; /* Slightly lighter background for better contrast */
+  color: #f0f0f0; /* Softer white text for less strain on the eyes */
+  box-sizing: border-box; /* Make sure padding doesn't affect the width */
+}
+
+/* Header */
+.about-header {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ffffff; /* Pure white for the header */
+  font-weight: 700; /* Bolder weight for emphasis */
+}
+
+/* Hover Effect for Tiles */
+.about-introduction,
+.about-features,
+.about-how-it-works,
+.about-technologies,
+.about-credits,
+.about-contact {
+  margin-bottom: 40px;
+  background-color: #232323; /* Lighter section background for contrast */
+  padding: 30px;
+  border-radius: 10px; /* Slightly larger rounding for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition effects */
+}
+
+.about-introduction:hover,
+.about-features:hover,
+.about-how-it-works:hover,
+.about-technologies:hover,
+.about-credits:hover,
+.about-contact:hover {
+  transform: translateY(-2px) scale(1.01); /* Slight lift and zoom-in effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* More prominent shadow on hover */
+  background-color: #282828; /* Slightly lighter background for hover state */
+}
+
+/* Paragraphs (General) */
+.about-page p {
+  font-size: 1.2rem; /* Ensure all paragraphs have the same size */
+  color: #e8e8e8; /* Softer text for better readability */
+  line-height: 1.8; /* Consistent line height for readability */
+}
+
+/* Features list */
+.about-features ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.about-features li {
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  padding-left: 24px; /* Increased padding for clarity */
+  position: relative;
+}
+
+.about-features li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #00ccff; /* Softer blue for list bullets */
+  font-size: 1.5rem;
+}
+
+/* Section headers */
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: #ffffff; /* Clear white for section titles */
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+
+/* Links */
+.about-contact a,
+.about-credits a {
+  color: #60a5fa; /* Softer blue for links */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.about-contact a:hover,
+.about-credits a:hover {
+  text-decoration: underline;
+  opacity: 0.9; /* Slight hover effect */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
   .about-header {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #f3f4f6; /* Lighter text for headers */
-    font-weight: 600;
+    font-size: 2rem;
   }
-  
-  .about-introduction, .about-features, .about-how-it-works, .about-technologies, .about-credits, .about-contact {
-    margin-bottom: 40px;
-    background-color: #374151; /* Darker background for sections */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Softer shadow to give depth */
-  }
-  
-  .about-introduction p, .about-features li, .about-technologies p, .about-how-it-works p {
-    font-size: 1.2rem;
-    color: #e5e7eb; /* Light text for readability */
-    line-height: 1.6;
-  }
-  
-  .about-features ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 10px;
-  }
-  
+
+  .about-page p,
   .about-features li {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-    padding-left: 20px;
-    position: relative;
+    font-size: 1rem;
   }
-  
-  .about-features li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: #3b82f6; /* Blue color for list bullets */
-    font-size: 1.5rem;
-  }
-  
-  h2 {
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-    color: #f3f4f6; /* Lighter gray for section titles */
-    font-weight: 500;
-  }
-  
-  .about-contact a, .about-credits a {
-    color: #3b82f6; /* Blue color for links */
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
-  .about-contact a:hover, .about-credits a:hover {
-    text-decoration: underline;
-    opacity: 0.8; /* Slight hover effect */
-  }
-  
-  .about-technologies, .about-how-it-works {
-    font-size: 1.1rem;
-    color: #e5e7eb; /* Light text color */
-    line-height: 1.6;
-  }
-  
-  .about-technologies p, .about-how-it-works p {
-    font-size: 1.1rem;
-    margin-top: 10px;
-  }
-  
-  @media (max-width: 768px) {
-    .about-header {
-      font-size: 2rem;
-    }
-  
-    .about-features li {
-      font-size: 1rem;
-    }
-  
-    .about-introduction p, .about-features li, .about-technologies p, .about-how-it-works p {
-      font-size: 1rem;
-    }
-  
-    .about-contact a, .about-credits a {
-      font-size: 1rem;
-    }
-  }
-  
+}
