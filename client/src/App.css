@@ -237,6 +237,29 @@
   color: #00aeff;
 }
 
+
+.movie-poster-container {
+  position: relative;
+}
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.3rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+.favorite-icon.favorite {
+  color: red;
+}
+.favorite-icon:hover {
+  transform: scale(1.1);
+}
+
+
+
+
 /* Specific Styles for Actor Movies */
 .actor-movies h1 {
   font-size: 2rem;
@@ -319,7 +342,7 @@
   height: auto; 
   object-fit: cover;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: -30px;
 }
 
 .movie-detail h1 {
@@ -336,6 +359,33 @@
 .movie-detail p strong {
   color: #fff;
 }
+
+/* Movie Details Heart Icon Styling */
+/* Poster and Heart Icon Styling for Movie Details Page */
+.detail-poster-container {
+  position: relative;
+  width: 100%;
+}
+
+.detail-favorite-icon {
+  position: absolute;
+  top: 40px; /* Adjust placement on the poster */
+  right: 50px; /* Adjust placement on the poster */
+  font-size: 1.3rem; /* Icon size */
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.detail-favorite-icon.favorite {
+  color: red;
+}
+
+.detail-favorite-icon:hover {
+  transform: scale(1.1);
+}
+
+
 
 
 

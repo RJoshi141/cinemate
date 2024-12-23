@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
 
 interface Movie {
   id: number;
@@ -45,6 +48,8 @@ const MovieDetail: React.FC = () => {
   const [rating, setRating] = useState<string | null>(null);
   const [trailer, setTrailer] = useState<string | null>(null);
   const [watchProviders, setWatchProviders] = useState<WatchProviders | null>(null);
+  const [isFavorite, setIsFavorite] = useState(false); // State for the heart icon
+
 
   const apiKey = 'ce08d866531db79a3a3f6c6fa0728fc7';
 
@@ -113,12 +118,22 @@ const MovieDetail: React.FC = () => {
   return (
     <div className="movie-detail">
       <div className="movie-detail-content" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-          className="movie-poster"
-          style={{ width: '300px', height: 'auto', marginRight: '20px' }}
-        />
+      <div className="detail-poster-container" style={{ position: 'relative', width: '300px' }}>
+      {/* Movie Poster */}
+      <img
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        alt={movie.title}
+        className="detail-poster"
+        style={{ width: '100%', height: 'auto' }}
+      />
+      {/* Favorite Icon */}
+      <FontAwesomeIcon
+        icon={isFavorite ? faSolidHeart : faRegularHeart}
+        className={`detail-favorite-icon ${isFavorite ? 'favorite' : ''}`}
+        onClick={() => setIsFavorite(!isFavorite)} // Toggle heart state
+      />
+    </div>
+
 
         {/* Movie Info */}
         <div className="movie-info" style={{ maxWidth: '600px' }}>

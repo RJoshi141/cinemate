@@ -75,7 +75,7 @@
 }
 
 /* Section headers */
-h2 {
+.about-page h2 {
   font-size: 1.8rem;
   margin-bottom: 16px;
   color: #ffffff; /* Clear white for section titles */
