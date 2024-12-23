@@ -75,13 +75,15 @@
 }
 
 /* Section headers */
-h2 {
+.about-page h2 {
   font-size: 1.8rem;
   margin-bottom: 16px;
   color: #ffffff; /* Clear white for section titles */
   font-weight: 600;
+  border-bottom: 2px solid #00ccff; /* Underline for visual separation */
   padding-bottom: 4px;
 }
+
 
 /* Links */
 .about-contact a,
