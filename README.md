@@ -14,10 +14,6 @@
 - Add movies to your Watchlist for future viewing.
 - Mark favorites to keep track of your top picks.
 
-### 🎞️ **Interactive Elements**
-- Spin the Wheel: Get random movie recommendations.
-- "Did You Know?" Trivia section for fun facts about movies.
-
 ### 📽️ **Rich Media Integration**
 - Watch trailers directly on the movie details page.
 - View high-quality images of movies and cast members.
@@ -149,4 +145,3 @@ If you have any questions or feedback, feel free to reach out:
 - **Ritika Joshi** - [GitHub](https://github.com/RJoshi141)
 
 Happy movie exploring with Cinemate! 🎬
-
