@@ -12,7 +12,7 @@
 
 ### Directors and Movie Quiz
 
-![Directors and Movie Quiz](cinemate_demo_directors_moviequiz.gif)
+![Directors and Movie Quiz](client/assets/cinemate_demo_directors_moviequiz.gif)
 
 
 ## Features
