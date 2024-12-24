@@ -14,6 +14,11 @@
 
 ![Directors and Movie Quiz](client/assets/cinemate_demo_directors_moviequiz.gif)
 
+### Actor and their Movies
+
+![Actor and their Movies]client/assets/cinemate_demo_actormovies.gif)
+
+---
 
 ## Features
 
