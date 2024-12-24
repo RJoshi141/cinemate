@@ -6,6 +6,7 @@
 
 ---
 ### Website Demo - Popular Movies, Favourites and Recommendations
+
 ![Website Demo](client/assets/cinemate_demo_popular_fav_recos.gif)
 
 ---
