@@ -1,6 +1,7 @@
 # Cinemate
 
-![Website Demo](client/assets/cinemate_demo1.gif)
+---
+![Website Demo](client/assets/cinemate_demo_popular_fav_recos.gif)
 
 **Cinemate** is a user-friendly React-based web application for movie enthusiasts. It provides a seamless browsing experience for discovering, exploring, and organizing your favorite films. With its clean interface and engaging features, Cinemate is your perfect companion for navigating the world of cinema.
 
