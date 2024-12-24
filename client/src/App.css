@@ -82,7 +82,7 @@
   position: absolute;
   width: 50px; /* Smaller size for the reel */
   height: 50px; /* Smaller size for the reel */
-  top: 348.5px; /* Position the reel above the circle */
+  top: 340.5px; /* Position the reel above the circle */
   margin-right: 10px;
   opacity: 0; /* Initially hidden */
   animation: fadeIn 0.5s forwards 0.2s; /* Quicker fade-in (0.3s), starts 1.1s after loading */
