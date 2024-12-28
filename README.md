@@ -1,6 +1,6 @@
 # Cinemate
 
-<img src="client/assets/cinemate_demo_logo.gif" alt="Cinemate Logo" width="200" height="100">
+<img src="client/assets/cinemate_demo_logo.gif" alt="Cinemate Logo" width="200" height="300">
 
 
 **Cinemate** is your ultimate movie companion, designed for film enthusiasts who love exploring, discovering, and organizing their favorite films. Dive into a seamless and engaging experience with Cinemate's clean interface and robust features.
