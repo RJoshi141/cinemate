@@ -32,15 +32,15 @@
 
 ### **Rich Media Integration**
 - Watch trailers directly on the movie details page.
-- Enjoy high-quality images of movies and cast members.
+- Enjoy high-quality images of movie posters and cast members.
 
 ### **Advanced Search Options**
-- Filter movies by genres, actors, and ratings.
+- Filter movies by genres, actors, and genres.
 - Discover films based on your unique interests.
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
 ### Frontend
 - **React**: Dynamic and responsive user interface.
