@@ -162,3 +162,6 @@ For questions or feedback, feel free to reach out:
 - **Ritika Joshi** - [GitHub](https://github.com/RJoshi141)
 
 Happy movie exploring! 🎬
+
+<img src="client/assets/leo.gif" alt="Happy movie exploring!" width="100" />
+
