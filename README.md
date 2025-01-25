@@ -2,7 +2,6 @@
 
 <img src="client/assets/cinemate_demo_logo.gif" alt="Cinemate Logo" width="310" height="300">
 
-
 **Cinemate** is your ultimate movie companion, designed for film enthusiasts who love exploring, discovering, and organizing their favorite films. Dive into a seamless and engaging experience with Cinemate's clean interface and robust features.
 
 ---
@@ -37,6 +36,7 @@
 ### **Advanced Search Options**
 - Filter movies by genres, actors, and genres.
 - Discover films based on your unique interests.
+- Search movies filtered by the directors.
 
 ---
 
@@ -161,5 +161,4 @@ For questions or feedback, feel free to reach out:
 
 - **Ritika Joshi** - [GitHub](https://github.com/RJoshi141)
 
-Happy movie exploring with Cinemate! 🎬
-
+Happy movie exploring! 🎬
