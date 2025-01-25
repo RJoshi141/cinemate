@@ -163,5 +163,5 @@ For questions or feedback, feel free to reach out:
 
 Happy movie exploring! 🎬
 
-<img src="client/assets/leo.gif" alt="Happy movie exploring!" width="100" />
+<img src="client/assets/leo.gif" alt="Happy movie exploring!" width="300" />
 
