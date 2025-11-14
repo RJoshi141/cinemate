@@ -57,7 +57,8 @@ Released under the MIT License. See `LICENSE` for details.
 - **The Movie Database (TMDb)** for powering data and imagery.
 - The React and Tailwind CSS communities for their tooling and inspiration.
 
-<div>
+## Thanks!
+<div align=>
   <img src="client/assets/leo.gif" alt="High-five from Leo" width="420">
   <p>Enjoy, share it with friends, and keep chasing that next great story.</p>
 </div>
