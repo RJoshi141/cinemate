@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/cinemate/static/css/main.f20e9e13.css",
-    "main.js": "/cinemate/static/js/main.8aa7a5ac.js",
+    "main.js": "/cinemate/static/js/main.1114cff1.js",
     "static/media/reel.png": "/cinemate/static/media/reel.6bebd7dfa8e9ad3a4f4b.png",
     "static/media/circle.png": "/cinemate/static/media/circle.d9eaa560bf4ea863d63e.png",
     "index.html": "/cinemate/index.html",
     "main.f20e9e13.css.map": "/cinemate/static/css/main.f20e9e13.css.map",
-    "main.8aa7a5ac.js.map": "/cinemate/static/js/main.8aa7a5ac.js.map"
+    "main.1114cff1.js.map": "/cinemate/static/js/main.1114cff1.js.map"
   },
   "entrypoints": [
     "static/css/main.f20e9e13.css",
-    "static/js/main.8aa7a5ac.js"
+    "static/js/main.1114cff1.js"
   ]
 }
