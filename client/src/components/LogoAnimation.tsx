@@ -14,11 +14,13 @@ const LogoAnimation: React.FC = () => {
 
   return (
     <div className="logo-container">
-      <div className="circle">
-        <img src={circle} alt="Circle" className="circle-img" />
-      </div>
-      <div className="reel">
-        <img src={reel} alt="Reel" className="reel-img" />
+      <div className="logo-emblem">
+        <div className="circle">
+          <img src={circle} alt="Circle" className="circle-img" />
+        </div>
+        <div className="reel">
+          <img src={reel} alt="Reel" className="reel-img" />
+        </div>
       </div>
       <div className="logo-text">CINEMATE</div>
       <p className="logo-subtext">Curating your next cinematic escape</p>

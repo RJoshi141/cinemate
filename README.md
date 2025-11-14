@@ -1,48 +1,60 @@
 # Cinemate
 
-<img src="client/assets/cinemate_demo_logo.gif" alt="Cinemate Logo" width="310" height="300">
+<img src="client/assets/logo.gif" alt="Cinemate logo animation" width="320" height="320">
 
-**Cinemate** is your ultimate movie companion, designed for film enthusiasts who love exploring, discovering, and organizing their favorite films. Dive into a seamless and engaging experience with Cinemate's clean interface and robust features.
-
-
-## 🎥 Highlights
-- Discover movies by title, genre, actor, or director with rich detail.
-- Save personal watchlists and favorites to stay organized.
-- Watch trailers and browse cinema-quality artwork without leaving the app.
+**Cinemate** is a movie companion for film lovers who want a fast, rich way to browse, discover, and organize what to watch next.
 
 
-## 🛠️ Tech Stack
-- **React + TypeScript** for the UI.
-- **React Router** for smooth navigation.
-- **Axios** to connect with **TMDb**.
-- **Tailwind CSS** for styling.
+## Highlights
+- Search by title, genre, actor, or director and view rich metadata at a glance.
+- Build personalised watchlists and mark favorites across devices.
+- Stream trailers, browse posters, and explore related recommendations in one place.
 
+### Favorites + Watchlist
+<img src="client/assets/fav-watch.gif" alt="Mark favorites and watchlist" width="640">
 
-## Quick Start
-```bash
-git clone https://github.com/RJoshi141/cinemate.git
-cd cinemate/client
-npm install
-echo "REACT_APP_TMDB_API_KEY=your_api_key_here" > .env
-npm start
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+### Director Filmographies
+<img src="client/assets/watch-direct.gif" alt="Browse a director's movies" width="640">
 
+### Genre Discovery & Cast Deep-Dives
+<img src="client/assets/genre-actor.gif" alt="Explore by genre and view actor filmography" width="640">
 
-## 🤝 Contributing
-- Fork the repo and create a branch.
-- Commit clearly scoped changes.
-- Open a pull request when you're ready.
+## Tech Stack
+- **React + TypeScript** UI with modular components.
+- **React Router** for client-side navigation.
+- **Axios** integration with **TMDb** for data and media.
+- **Tailwind CSS** plus custom styles for a responsive layout.
 
+## Getting Started
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/RJoshi141/cinemate.git
+   cd cinemate/client
+   ```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+3. **Configure API access**
+   - Create a `.env` file in `client/`.
+   - Add your TMDb key:
+     ```env
+     REACT_APP_TMDB_API_KEY=your_api_key_here
+     ```
+4. **Run the app**
+   ```bash
+   npm start
+   ```
+   Visit [http://localhost:3000](http://localhost:3000) to explore Cinemate.
 
+## Contributing
+- Fork the project and create a feature branch.
+- Keep commits scoped and descriptive.
+- Submit a pull request with context and screenshots when relevant.
 
-## 📜 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-
+## License
+Released under the MIT License. See `LICENSE` for details.
 
 ## Acknowledgments
-
-- **The Movie Database (TMDb)** for providing API and data.
-- React and Tailwind CSS for a seamless development experience.
+- **The Movie Database (TMDb)** for powering data and imagery.
+- The React and Tailwind CSS communities for their tooling and inspiration.

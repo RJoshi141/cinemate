@@ -229,6 +229,19 @@
   color: rgba(244, 246, 251, 0.9);
 }
 
+.director-link {
+  color: rgba(244, 246, 251, 0.9);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.director-link:hover,
+.director-link:focus-visible {
+  color: #f4f6fb;
+  font-weight: 700;
+}
+
 .platform-logos {
   display: flex;
   flex-wrap: wrap;
@@ -478,7 +491,7 @@
 .movie-hero__poster-frame .favorite-icon {
   position: absolute;
   top: clamp(12px, 2vw, 18px);
-  right: clamp(12px, 3vw, 58px);
+  right: clamp(8px, 1.5vw, 32px);
   font-size: 1.35rem;
   color: rgba(244, 246, 251, 0.85);
   cursor: pointer;

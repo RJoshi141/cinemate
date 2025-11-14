@@ -178,8 +178,14 @@ const MovieDetail: React.FC = () => {
 
   const genres = movie.genres?.map((genre) => genre.name).filter(Boolean) ?? [];
 
+  const directorLink = director ? (
+    <Link to={`/director/${director.id}`} className="director-link">
+      {director.name}
+    </Link>
+  ) : undefined;
+
   const creditItems: CreditItem[] = [
-    { label: 'Director', value: director?.name },
+    { label: 'Director', value: directorLink },
     { label: 'Producers', value: producers || undefined },
     { label: 'Language', value: movie.original_language ? movie.original_language.toUpperCase() : undefined },
     { label: 'Budget', value: movie.budget ? `$${movie.budget.toLocaleString()}` : undefined },
