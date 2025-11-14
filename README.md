@@ -1,9 +1,7 @@
-# Cinemate
-
-<img src="client/assets/logo.gif" alt="Cinemate logo animation" width="320" height="320">
-
-**Cinemate** is a movie companion for film lovers who want a fast, rich way to browse, discover, and organize what to watch next.
-
+<div align="center">
+  <img src="client/assets/logo.gif" alt="Cinemate logo animation" width="320" height="320">
+  <p><strong>Cinemate</strong> is a movie companion for film lovers who want a fast, rich way to browse, discover, and organize what to watch next.</p>
+</div>
 
 ## Highlights
 - Search by title, genre, actor, or director and view rich metadata at a glance.
@@ -58,3 +56,9 @@ Released under the MIT License. See `LICENSE` for details.
 ## Acknowledgments
 - **The Movie Database (TMDb)** for powering data and imagery.
 - The React and Tailwind CSS communities for their tooling and inspiration.
+
+## Final Frame
+<div align="center">
+  <img src="client/assets/leo.gif" alt="High-five from Leo" width="420">
+  <p>Enjoy, share it with friends, and keep chasing that next great story.</p>
+</div>
