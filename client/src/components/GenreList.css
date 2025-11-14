@@ -7,7 +7,7 @@ html, body {
 
 .genre-list {
   text-align: center;
-  padding: 20px;
+  padding: 40px;
   max-width: 100%;
   background-color: #333;
   min-height: 100vh; /* Ensure the genre list takes full height */
@@ -15,38 +15,61 @@ html, body {
   margin-bottom: 0;
 }
 .genre-list h1{
-  color:#00aeff;
+  color:#b20710;
 }
 
 .genre-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-grow: 1; /* Allow the genre cards section to take up remaining space */
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 50px;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 30px;
 }
 
 .genre-card {
-  background-color: #1d1d1d;
+  background: rgba(18, 18, 18, 0.85);
   color: #fff;
-  margin: 15px;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 20px 8px;
+  border-radius: 18px;
   text-decoration: none;
-  width: 200px;
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.genre-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  color: #961818;
+  transition: transform 0.3s ease;
 }
 
 .genre-card:hover {
-  background-color: #00aeff; /* Blue color on hover */
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0 8px 15px rgba(0, 174, 255, 0.5); /* Glowing effect */
+  background: rgba(178, 7, 16, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(178, 7, 16, 0.35);
+}
+
+.genre-card:hover .genre-card-icon {
+  transform: scale(1.08);
 }
 
 .genre-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0;
 }
 
 .genre-card-content {
@@ -57,5 +80,5 @@ html, body {
 }
 
 .genre-card:hover h3 {
-  color: #fff; /* White text color when hovered */
+  color: #fff;
 }

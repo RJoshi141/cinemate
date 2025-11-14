@@ -1,111 +1,240 @@
-/* AboutPage.css */
 .about-page {
-  padding: 20px;
-  width: 100%;
-  min-width: 100%; /* Ensure it always stretches to at least the full width */
-  margin: 0; /* Remove the margin */
-  font-family: 'Arial', sans-serif;
-  background-color: #1a1a1a; /* Slightly lighter background for better contrast */
-  color: #f0f0f0; /* Softer white text for less strain on the eyes */
-  box-sizing: border-box; /* Make sure padding doesn't affect the width */
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 6vw, 4.5rem);
+  margin: 0 auto;
+  max-width: 1100px;
+  color: #f4f6fb;
 }
 
-/* Header */
-.about-header {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 30px;
-  color: #ffffff; /* Pure white for the header */
-  font-weight: 700; /* Bolder weight for emphasis */
+.about-hero {
+  display: grid;
+  gap: clamp(24px, 6vw, 48px);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+  align-items: center;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
-/* Hover Effect for Tiles */
-.about-introduction,
-.about-features,
-.about-how-it-works,
-.about-technologies,
-.about-credits,
-.about-contact {
-  margin-bottom: 40px;
-  background-color: #232323; /* Lighter section background for contrast */
-  padding: 30px;
-  border-radius: 10px; /* Slightly larger rounding for a modern look */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition effects */
+.about-hero__content h1 {
+  font-size: clamp(2.5rem, 6vw, 3.6rem);
+  margin: 12px 0;
+  letter-spacing: -0.02em;
 }
 
-.about-introduction:hover,
-.about-features:hover,
-.about-how-it-works:hover,
-.about-technologies:hover,
-.about-credits:hover,
-.about-contact:hover {
-  transform: translateY(-2px) scale(1.01); /* Slight lift and zoom-in effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* More prominent shadow on hover */
-  background-color: #282828; /* Slightly lighter background for hover state */
+.about-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(178, 7, 16, 0.15);
+  border: 1px solid rgba(178, 7, 16, 0.3);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
 }
 
-/* Paragraphs (General) */
-.about-page p {
-  font-size: 1.2rem; /* Ensure all paragraphs have the same size */
-  color: #e8e8e8; /* Softer text for better readability */
-  line-height: 1.8; /* Consistent line height for readability */
-}
-
-/* Features list */
-.about-features ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 10px;
-}
-
-.about-features li {
+.about-hero__content p {
+  margin-top: 12px;
   font-size: 1.1rem;
-  margin-bottom: 14px;
-  padding-left: 24px; /* Increased padding for clarity */
-  position: relative;
+  line-height: 1.8;
+  color: rgba(244, 246, 251, 0.75);
 }
 
-.about-features li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #00ccff; /* Softer blue for list bullets */
-  font-size: 1.5rem;
+.about-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
 }
 
-/* Section headers */
-.about-page h2 {
+.about-hero__stats div {
+  background: rgba(18, 18, 18, 0.8);
+  border-radius: 20px;
+  padding: 18px 20px;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(178, 7, 16, 0.18);
+}
+
+.about-hero__stats strong {
+  display: block;
+  font-size: 1.4rem;
+  color: #f7f7f7;
+}
+
+.about-hero__stats span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: rgba(244, 246, 251, 0.68);
+}
+
+.about-hero__marquee {
+  display: grid;
+  gap: 16px;
+}
+
+.marquee-card {
+  background: linear-gradient(135deg, rgba(178, 7, 16, 0.18), rgba(26, 26, 26, 0.82));
+  border-radius: 22px;
+  padding: 26px 24px;
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.4);
+  display: grid;
+  gap: 12px;
+  justify-items: flex-start;
+}
+
+.marquee-card svg {
+  font-size: 1.6rem;
+  color: #f4f6fb;
+}
+
+.marquee-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.marquee-card p {
+  margin: 0;
+  color: rgba(244, 246, 251, 0.75);
+  font-size: 0.95rem;
+}
+
+.about-section {
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.about-section h2 {
   font-size: 1.8rem;
-  margin-bottom: 16px;
-  color: #ffffff; /* Clear white for section titles */
+  margin-bottom: 24px;
   font-weight: 600;
-  border-bottom: 2px solid #00ccff; /* Underline for visual separation */
-  padding-bottom: 4px;
+  letter-spacing: 0.03em;
 }
 
-/* Links */
-.about-contact a,
-.about-credits a {
-  color: #60a5fa; /* Softer blue for links */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.about-card {
+  background: rgba(19, 19, 19, 0.85);
+  border-radius: 20px;
+  padding: 26px 24px;
+  display: grid;
+  gap: 14px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.38);
+  border: 1px solid rgba(178, 7, 16, 0.2);
+}
+
+.about-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(178, 7, 16, 0.22);
+  display: grid;
+  place-items: center;
+  color: #f4f6fb;
+  font-size: 1.3rem;
+}
+
+.about-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.about-card p {
+  margin: 0;
+  color: rgba(244, 246, 251, 0.72);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.about-narrative__content {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  background: linear-gradient(135deg, rgba(178, 7, 16, 0.12), rgba(20, 20, 20, 0.8));
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+}
+
+.about-narrative__content h3 {
+  margin-bottom: 12px;
+}
+
+.about-narrative__content p {
+  color: rgba(244, 246, 251, 0.74);
+  line-height: 1.7;
+}
+
+.about-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(23, 23, 23, 0.9);
+  border: 1px solid rgba(178, 7, 16, 0.25);
+  font-size: 0.95rem;
+  color: rgba(244, 246, 251, 0.88);
+}
+
+.about-note {
+  color: rgba(244, 246, 251, 0.68);
+  font-size: 0.95rem;
+}
+
+.about-note a {
+  color: #f08a94;
   text-decoration: none;
-  font-weight: 600;
 }
 
-.about-contact a:hover,
-.about-credits a:hover {
+.about-note a:hover {
   text-decoration: underline;
-  opacity: 0.9; /* Slight hover effect */
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .about-header {
-    font-size: 2rem;
-  }
+.about-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
 
-  .about-page p,
-  .about-features li {
-    font-size: 1rem;
+.contact-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(18, 18, 18, 0.88);
+  border: 1px solid rgba(178, 7, 16, 0.3);
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.contact-card:hover {
+  background: rgba(178, 7, 16, 0.2);
+}
+
+.contact-card svg {
+  font-size: 1.2rem;
+}
+
+.about-page p {
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .about-hero {
+    grid-template-columns: 1fr;
   }
 }

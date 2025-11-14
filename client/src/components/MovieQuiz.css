@@ -1,85 +1,130 @@
 .movie-quiz {
-    background-color: #1f1f1f;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 40px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    margin: clamp(2.5rem, 8vw, 4rem) auto;
+    color: #f4f6fb;
+    display: grid;
+    gap: clamp(2rem, 6vw, 3.5rem);
+    padding: 0 clamp(1.5rem, 6vw, 4rem);
+  }
+  
+.quiz-hero {
     text-align: center;
+    display: grid;
+    gap: 12px;
   }
   
-  .movie-quiz h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #00aeff;
-  }
-  
-  .quiz-container {
-    display: flex;
-    flex-direction: column;
+.quiz-pill {
+    display: inline-flex;
     align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: rgba(178, 7, 16, 0.2);
+    border: 1px solid rgba(178, 7, 16, 0.35);
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
   }
   
-  .quiz-question {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
+.quiz-hero h1 {
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    margin: 0;
   }
   
-  .quiz-options {
+.quiz-hero p {
+    margin: 0 auto;
+    max-width: 600px;
+    color: rgba(244, 246, 251, 0.75);
+    line-height: 1.7;
+  }
+  
+.quiz-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  
+.quiz-card {
+    background: rgba(18, 18, 18, 0.88);
+    border-radius: 20px;
+    padding: 24px;
+    display: grid;
+    gap: 16px;
+    border: 1px solid rgba(178, 7, 16, 0.2);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.38);
+  }
+  
+.quiz-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(178, 7, 16, 0.22);
+    display: grid;
+    place-items: center;
+    color: #f8f8f8;
+    font-size: 1.3rem;
+  }
+  
+.quiz-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+.quiz-options {
+    display: grid;
+    gap: 12px;
+  }
+  
+.quiz-option {
+    background: rgba(26, 26, 26, 0.95);
+    border: 1px solid rgba(244, 246, 251, 0.08);
+    color: rgba(244, 246, 251, 0.85);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s ease, border 0.2s ease;
+  }
+  
+.quiz-option:hover {
+    background: rgba(178, 7, 16, 0.24);
+    border-color: rgba(178, 7, 16, 0.4);
+  }
+  
+.quiz-option.selected {
+    background: rgba(178, 7, 16, 0.65);
+    border-color: rgba(178, 7, 16, 0.75);
+    color: #fff;
+  }
+  
+.quiz-error {
+    background: rgba(178, 7, 16, 0.18);
+    border: 1px solid rgba(178, 7, 16, 0.4);
+    border-radius: 14px;
+    padding: 14px 18px;
+    text-align: center;
+    color: #f9d9dc;
+    font-size: 0.95rem;
+  }
+  
+.quiz-footer {
     display: flex;
     justify-content: center;
-    gap: 10px;
   }
   
-  .quiz-option {
-    background-color: #333;
+.quiz-submit {
+    background: rgba(178, 7, 16, 0.75);
     color: #fff;
-    border: 1px solid #444;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .quiz-option:hover {
-    background-color: #00aeff;
-  }
-  
-  .quiz-option.selected {
-    background-color: #00aeff;
-    border: 1px solid #00aeff;
-  }
-  
-  .quiz-footer {
-    margin-top: 30px;
-  }
-  
-  .quiz-submit {
-    background-color: #00aeff;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1.2rem;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-size: 1.1rem;
     cursor: pointer;
     border: none;
-    transition: background-color 0.3s ease;
+    transition: background 0.25s ease;
   }
   
-  .quiz-submit:hover {
-    background-color: #009bb5;
-  }
-  
-  .back-link {
-    display: inline-block;
-    margin-top: 20px;
-    color: #00aeff;
-    text-decoration: none;
-    font-size: 1rem;
-  }
-  
-  .back-link:hover {
-    text-decoration: underline;
+.quiz-submit:hover {
+    background: rgba(178, 7, 16, 0.9);
   }
   

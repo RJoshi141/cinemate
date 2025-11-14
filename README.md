@@ -8,8 +8,8 @@
 
 ## 🌟 Website Demo
 
-### Popular Movies, Favorites, and Recommendations
-<img src="client/assets/cinemate_demo_popular_fav_recos.gif" alt="Popular Movies, Favorites, and Recommendations" width="600" />
+### Popular Movies and Favorites
+<img src="client/assets/cinemate_demo_popular_fav_recos.gif" alt="Popular Movies and Favorites" width="600" />
 
 ### Directors and Movie Quiz
 <img src="client/assets/cinemate_demo_directors_moviequiz.gif" alt="Directors and Movie Quiz" width="600" />

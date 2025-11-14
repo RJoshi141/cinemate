@@ -82,7 +82,7 @@
   position: absolute;
   width: 50px; /* Smaller size for the reel */
   height: 50px; /* Smaller size for the reel */
-  top: 344.5px; /* Position the reel above the circle */
+  top: 360px; /* Lift the reel slightly for better alignment */
   margin-right: 10px;
   opacity: 0; /* Initially hidden */
   animation: fadeIn 0.5s forwards 0.2s; /* Quicker fade-in (0.3s), starts 1.1s after loading */
@@ -134,7 +134,7 @@
 /* Styling for loading and error messages with spinner */
 .loading {
   font-size: 1.5rem;
-  color: #00aeff;
+  color: #b20710;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,7 +145,7 @@
   content: "";
   display: inline-block;
   margin-left: 10px;
-  border: 3px solid #00aeff;
+  border: 3px solid #b20710;
   border-top: 3px solid transparent;
   border-radius: 50%;
   width: 10px;
@@ -164,11 +164,60 @@
   text-align: center;
 }
 
-.movie-list h1 {
-  color: white;
+.movie-list {
+  min-height: 100vh;
+  padding: 48px clamp(1.5rem, 6vw, 5rem) 96px;
+  margin: 0 auto;
+  max-width: 1400px;
+  color: #f4f6fb;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  background: rgba(10, 12, 28, 0.78);
+  background-image:
+    linear-gradient(135deg, rgba(229, 9, 20, 0.14) 0%, rgba(10, 12, 28, 0.78) 42%, rgba(45, 55, 155, 0.18) 100%),
+    linear-gradient(0deg, rgba(14, 16, 45, 0.8), rgba(14, 16, 45, 0.8));
+  border-radius: 0;
+  border: 1px solid rgba(244, 246, 251, 0.06);
+  box-shadow: 0 48px 120px rgba(5, 8, 35, 0.55);
+  backdrop-filter: blur(32px);
 }
+
+.movie-list-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.movie-list h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.movie-list h1::before,
+.movie-list h1::after {
+  content: none;
+}
+
+.movie-list .intro-copy {
+  font-size: 1rem;
+  color: rgba(244, 246, 251, 0.72);
+  max-width: 620px;
+  line-height: 1.6;
+  margin: 0 auto;
+  text-align: center;
+}
+
 /* Common Styling for Movie and Actor Movies List and Cards */
-.movie-list, .actor-movies {
+.actor-movies {
   padding: 20px;
   max-width: 100%;
   margin: 0 auto;
@@ -179,82 +228,189 @@
 
 .movies, .actor-movies .movies {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 40px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: clamp(32px, 4vw, 48px);
+  justify-items: stretch;
+  width: 100%;
 }
 
-.movie-card, .actor-movies .movie-card {
-  background-color: #222;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  width: 215px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 500px;
+.movie-card,
+.actor-movies .movie-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  overflow: visible;
+  text-align: left;
+  transition: none;
+  height: 100%;
+  box-shadow: none;
 }
 
-.movie-card:hover, .actor-movies .movie-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+.movie-card:hover,
+.actor-movies .movie-card:hover {
+  transform: none;
 }
 
 .movie-poster, .actor-movies .movie-poster {
   width: 100%;
-  height: 300px;
+  height: 280px;
   object-fit: cover;
-  border-bottom: 2px solid #444;
+  border-radius: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: none;
+  display: block;
+}
+.movie-card__info {
+  margin-top: 0;
+  background: rgba(5, 5, 5, 0.92);
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-radius: 0 0 20px 20px;
 }
 
-.movie-card h2, .actor-movies h1, .actor-movies .movie-card h3 {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #fff;
-  text-decoration: none;
+.movie-card__info h2,
+.movie-card__info h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f4f6fb;
+  letter-spacing: 0.015em;
+}
+
+.movie-card__info .movie-meta {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(244, 246, 251, 0.7);
+}
+
+.actor-movies h1 {
+  font-size: 2.4rem;
+  margin: 0 0 24px;
+  color: #f4f6fb;
+  text-align: center;
+  letter-spacing: 0.04em;
 }
 
 .movie-overview, .actor-movies .movie-overview {
-  font-size: 14px;
-  color: #ccc;
+  font-size: 0.9rem;
+  color: rgba(244, 246, 251, 0.65);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  display: flex;
-  line-clamp: 3;
-  box-orient: vertical;
+  line-height: 1.5;
 }
 
-.movie-card p, .actor-movies .movie-card p {
-  font-size: 14px;
-  color: #ccc;
+.movie-card p,
+.actor-movies .movie-card p {
+  font-size: 0.92rem;
+}
+
+.movie-meta {
+  font-size: 0.88rem;
+  color: rgba(244, 246, 251, 0.68);
+  margin: 0;
+  text-align: left;
 }
 
 .movie-card a, .actor-movies .movie-card a {
   text-decoration: none;
-  color: #00aeff;
+  color: rgba(178, 7, 16, 0.85);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.movie-card a:hover, .actor-movies .movie-card a:hover {
+  color: rgba(229, 9, 20, 0.8);
 }
 
 
 .movie-poster-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 .favorite-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.3rem;
-  color: white;
+  top: 12px;
+  right: 12px;
+  font-size: 1.4rem;
+  color: rgba(244, 246, 251, 0.9);
   cursor: pointer;
-  transition: color 0.2s ease, transform 0.1s ease;
+  transition: color 0.2s ease, transform 0.15s ease;
+  text-shadow: 0 6px 12px rgba(0, 0, 0, 0.45);
 }
 .favorite-icon.favorite {
-  color: red;
+  color: #e50914;
 }
 .favorite-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
+  color: #e50914;
+}
+
+.favorites-page {
+  padding: 40px 60px;
+  color: #ffffff;
+}
+
+.favorites-page h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.favorites-page.empty {
+  text-align: center;
+}
+
+.favorites-page .back-to-home {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  background: #e50914;
+  color: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.favorites-page .back-to-home:hover {
+  background: #b20710;
+}
+
+.remove-favorite-button {
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid #e50914;
+  color: #e50914;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.movie-card__info .remove-favorite-button {
+  align-self: flex-start;
+  margin: 12px 0 0;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
+
+.remove-favorite-button:hover {
+  background: #e50914;
+  color: #ffffff;
 }
 
 
@@ -276,51 +432,140 @@
 
 /* Container for search and filter inputs */
 .search-filter {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.2fr) minmax(200px, 0.8fr);
+  gap: 20px;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 780px;
+  width: 100%;
+  margin: 0 auto 6px;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.search-group,
+.filter-group {
+  position: relative;
   display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.search-group:focus-within,
+.filter-group:focus-within {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.search-input,
+.genre-dropdown {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(244, 246, 251, 0.08);
+  background: rgba(10, 10, 26, 0.65);
+  padding: 14px 18px;
+  color: #f4f6fb;
+  font-size: 0.95rem;
+  transition: border 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  flex: 1;
+  min-height: 46px;
+}
+
+.search-input::placeholder {
+  color: rgba(244, 246, 251, 0.5);
+}
+
+.search-input:focus,
+.genre-dropdown:focus {
+  outline: none;
+  border-color: rgba(229, 9, 20, 0.6);
+  box-shadow: 0 0 0 4px rgba(229, 9, 20, 0.12);
+  transform: translateY(-1px);
+}
+
+.search-icon,
+.filter-icon {
+  font-size: 1rem;
+  color: rgba(244, 246, 251, 0.7);
+}
+
+.clear-search,
+.reset-filters {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  background: rgba(229, 9, 20, 0.18);
+  color: rgba(244, 246, 251, 0.82);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clear-search:hover,
+.reset-filters:hover {
+  background: rgba(229, 9, 20, 0.32);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(229, 9, 20, 0.18);
+}
+
+.clear-search svg {
+  font-size: 1rem;
+}
+
+.filter-group select {
+  flex: 1;
+}
+
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  padding: 6px 0 0;
+  color: rgba(244, 246, 251, 0.78);
+  font-size: 0.9rem;
+}
+
+.filter-pill {
+  display: inline-flex;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(229, 9, 20, 0.22);
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  box-shadow: 0 12px 24px rgba(229, 9, 20, 0.18);
 }
 
-.search-input {
-  width: 250px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #444;
-  font-size: 16px;
-  transition: all 0.1s ease-in-out;
-  background-color: #222;
-  color: #fff;
-}
-
-.search-input:focus {
-  border-color: #00aeff;
-  outline: none;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 
 
 
-
-
-
-/* Genre dropdown */
-.genre-dropdown {
-  width: 170px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #444;
-  font-size: 16px;
-  transition: all 0.1s ease-in-out;
-  background-color: #222;
-  color: #fff;
-}
-
-.genre-dropdown:focus {
-  border-color: #00aeff;
-  outline: none;
-}
 
 
 
@@ -402,13 +647,6 @@
   color: #fff;
 }
 
-.trailer-section iframe {
-  width: 100%;
-  max-width: 780px; /* Limit trailer width */
-  height: 420px;
-  border-radius: 5px;
-}
-
 
 
 
@@ -457,7 +695,7 @@
 }
 
 .recommendations-list .movie-card:hover {
-  transform: translateY(-3px);
+  transform: none;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -484,7 +722,7 @@
   height: 5px;
 }
 .recommendations-list::-webkit-scrollbar-thumb {
-  background-color: #27beff;
+  background-color: #b20710;
   border-radius: 5px !important;
 }
 .recommendations-list::-webkit-scrollbar-track {
@@ -503,7 +741,7 @@
 
 /* Style for Actor Name's Movies Heading */
 .actor-movies-heading {
-  color: #00a6ff; 
+  color: #b20710; 
   font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
@@ -513,6 +751,7 @@
 /* Bio Truncation: Truncated Bio Style */
 .bio-truncated {
   display: -webkit-box;
+  line-clamp: 3; /* Limits to 3 lines */
   -webkit-line-clamp: 3; /* Limits to 3 lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -526,7 +765,7 @@
 
 /* Read More / Less Link */
 .read-more {
-  color: #00aeff;
+  color: #b20710;
   cursor: pointer;
   text-decoration: underline;
 }
@@ -570,69 +809,66 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  gap: 16px;
+  margin-top: 32px;
 }
 
-/* General button styling */
 .pagination button {
-  background-color: #1e3a8a; /* Deep blue background */
-  color: white;               /* White text */
-  border: none;               /* No border */
-  padding: 10px 20px;         /* Padding for the buttons */
-  margin: 0 10px;             /* Space between buttons */
-  font-size: 16px;            /* Font size */
-  border-radius: 5px;         /* Rounded corners */
-  cursor: pointer;           /* Cursor pointer to indicate it's clickable */
-  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+  background: rgba(20, 20, 20, 0.85);
+  color: #f4f6fb;
+  border: 1px solid rgba(244, 246, 251, 0.08);
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
 }
 
-/* Styling when hovering over the buttons */
 .pagination button:hover {
-  background-color: #1e40af; /* Lighter blue on hover */
-  transform: scale(1.05);     /* Slightly enlarges the button */
+  background: rgba(229, 9, 20, 0.85);
+  border-color: rgba(229, 9, 20, 0.6);
+  transform: translateY(-1px);
 }
 
-/* Disable the "Previous" button when on the first page */
 .pagination button:disabled {
-  background-color: #4b6c93;  /* Greyed out button (light blue) */
-  cursor: not-allowed;        /* Change cursor to not-allowed */
+  background: rgba(30, 30, 30, 0.6);
+  color: rgba(244, 246, 251, 0.35);
+  border-color: rgba(244, 246, 251, 0.05);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 
-/* Styling for "Previous" and "Next" buttons individually */
-.pagination button:first-child {
-  background-color: #2563eb; /* Lighter blue color for Previous */
+.pagination span {
+  font-size: 0.95rem;
+  color: rgba(244, 246, 251, 0.7);
 }
 
-.pagination button:first-child:hover {
-  background-color: #1d4ed8; /* Darker blue on hover */
-}
-
-.pagination button:last-child {
-  background-color: #3b82f6; /* Lighter blue color for Next */
-}
-
-.pagination button:last-child:hover {
-  background-color: #2563eb; /* Darker blue on hover */
-}
-
-/* Page info styling */
-.page-info {
-  font-size: 16px;
-  color: #fff;
-  margin: 0 10px;           /* Space between page info and buttons */
-}
 
 
 
 /* Responsive Layout */
-@media (max-width: 600px) {
-  .movie-card {
-    width: 150px;
+@media (max-width: 768px) {
+  .movie-list {
+    padding: 36px 1.5rem 64px;
   }
-  .movie-poster {
-    height: 250px;
+
+  .search-filter {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
-  h1 {
-    font-size: 1.8rem;
+
+  .movie-card,
+  .actor-movies .movie-card {
+    border-radius: 18px;
+  }
+
+  .movie-poster,
+  .actor-movies .movie-poster {
+    height: 280px;
   }
 }
+
+

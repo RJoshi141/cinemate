@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import MovieList from './components/MovieList';
 import ActorMovies from './components/ActorMovies';
 import MovieDetail from './components/MovieDetail';
@@ -9,10 +9,12 @@ import Header from './components/Header';
 import DirectorsList from './components/DirectorsList';
 import DirectorMovies from './components/DirectorMovies';
 import MovieQuiz from './components/MovieQuiz';
-import RecommendationsPage from './components/RecommendationsPage';
 import AboutPage from './components/AboutPage';
 import ActorList from './components/ActorList';
 import LogoAnimation from './components/LogoAnimation';
+import FavoritesPage from './components/FavoritesPage';
+import WatchlistPage from './components/WatchlistPage';
+import { FavoritesProvider } from './context/FavoritesContext';
 import './App.css';
 
 // Component to control scroll behavior
@@ -26,7 +28,37 @@ const ScrollControl: React.FC = () => {
     } else {
       document.body.style.overflow = 'auto'; // Enable scroll on all other pages
     }
-  }, [location]);
+
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    // Wait for the next frame so new layout can render first
+    const rafId = requestAnimationFrame(scrollToTop);
+
+    return () => cancelAnimationFrame(rafId);
+  }, [location.pathname]);
+
+  return null;
+};
+
+// Component to ensure the app always starts on the home page
+const InitialRedirect: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const hasRedirectedRef = useRef(false);
+
+  useEffect(() => {
+    if (hasRedirectedRef.current) return;
+
+    hasRedirectedRef.current = true;
+
+    if (location.pathname !== '/') {
+      navigate('/', { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
   return null;
 };
@@ -41,29 +73,34 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router>
-      {isLogoVisible ? (
-        <LogoAnimation />
-      ) : (
-        <>
-          <Header />
-          <ScrollControl />
-          <Routes>
-            <Route path="/" element={<MovieList />} />
-            <Route path="/movie/:id" element={<MovieDetail />} />
-            <Route path="/actor/:actorId/:actorName" element={<ActorMovies />} />
-            <Route path="/actors" element={<ActorList />} />
-            <Route path="/genres" element={<GenreList />} />
-            <Route path="/genre/:genreId" element={<GenreMovies />} />
-            <Route path="/directors" element={<DirectorsList />} />
-            <Route path="/director/:directorId" element={<DirectorMovies />} />
-            <Route path="/quiz" element={<MovieQuiz />} />
-            <Route path="/recommendations" element={<RecommendationsPage />} />
-            <Route path="/about" element={<AboutPage />} />
-          </Routes>
-        </>
-      )}
-    </Router>
+    <FavoritesProvider>
+      <Router>
+        {isLogoVisible ? (
+          <LogoAnimation />
+        ) : (
+          <>
+            <Header />
+            <ScrollControl />
+            <InitialRedirect />
+            <Routes>
+              <Route path="/" element={<MovieList />} />
+              <Route path="/movie/:id" element={<MovieDetail />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
+              <Route path="/watchlist" element={<WatchlistPage />} />
+              <Route path="/actor/:actorId/:actorName" element={<ActorMovies />} />
+              <Route path="/actors" element={<ActorList />} />
+              <Route path="/genres" element={<GenreList />} />
+              <Route path="/genre/:genreId" element={<GenreMovies />} />
+              <Route path="/directors" element={<DirectorsList />} />
+              <Route path="/director/:directorId" element={<DirectorMovies />} />
+              <Route path="/quiz" element={<MovieQuiz />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </>
+        )}
+      </Router>
+    </FavoritesProvider>
   );
 };
 

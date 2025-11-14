@@ -1,60 +1,76 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilm, faFireFlameCurved, faSmileBeam, faMasksTheater, faGhost } from '@fortawesome/free-solid-svg-icons';
 import './MovieQuiz.css';
 
+const questionIcons = [faFilm, faFireFlameCurved, faSmileBeam, faMasksTheater];
+
+const questions = [
+  {
+    question: "Pick tonight's vibe",
+    options: ['Action', 'Comedy', 'Drama', 'Horror'],
+  },
+  {
+    question: 'Crave spectacle?',
+    options: ['Absolutely', 'Prefer practical magic'],
+  },
+  {
+    question: 'Dream setting',
+    options: ['Out in space', 'Epic fantasy', 'Real-world grit', 'Historical saga'],
+  },
+  {
+    question: 'How should it end?',
+    options: ['Give me hope', 'Break my heart', 'Surprise me'],
+  },
+];
+
 const MovieQuiz: React.FC = () => {
-  const [answers, setAnswers] = useState<string[]>(new Array(4).fill(''));
+  const [answers, setAnswers] = useState<string[]>(Array(questions.length).fill(''));
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  // Example questions and options for the quiz
-  const questions = [
-    {
-      question: "What type of movie do you prefer?",
-      options: ["Action", "Comedy", "Drama", "Horror"],
-    },
-    {
-      question: "Do you like movies with a lot of special effects?",
-      options: ["Yes", "No"],
-    },
-    {
-      question: "What's your favorite movie setting?",
-      options: ["Space", "Fantasy", "Realistic", "Historical"],
-    },
-    {
-      question: "Do you prefer movies with a happy or sad ending?",
-      options: ["Happy", "Sad", "Any"],
-    },
-  ];
-
-  // Handle answer selection
   const handleAnswerSelection = (questionIndex: number, answer: string) => {
-    const newAnswers = [...answers];
-    newAnswers[questionIndex] = answer;
-    setAnswers(newAnswers);
+    setAnswers((prev) => {
+      const clone = [...prev];
+      clone[questionIndex] = answer;
+      return clone;
+    });
   };
 
-  // Handle form submission (redirect to recommendations page)
   const handleSubmit = () => {
-    if (answers.includes('')) {
-      setError('Please answer all questions');
+    if (answers.some((answer) => !answer)) {
+      setError('Select an answer for each question to unlock your perfect pick.');
       return;
     }
-    // Redirect to recommendations page and pass answers as state
-    navigate('/recommendations', { state: { answers } });
+    navigate('/', { state: { answers } });
   };
 
   return (
     <div className="movie-quiz">
-      <h2>Movie Quiz</h2>
-      <div className="quiz-container">
+      <div className="quiz-hero">
+        <span className="quiz-pill">
+          <FontAwesomeIcon icon={faGhost} />
+          Cinemate Quiz
+        </span>
+        <h1>Build Tonight’s Scene</h1>
+        <p>
+          Answer a few quick questions and we’ll cue up the movie that matches your mood. No algorithms in sight—just
+          pure cinema intuition.
+        </p>
+      </div>
+
+      <div className="quiz-grid">
         {questions.map((question, index) => (
-          <div className="quiz-question" key={index}>
-            <p>{question.question}</p>
+          <div className="quiz-card" key={question.question}>
+            <div className="quiz-card__icon">
+              <FontAwesomeIcon icon={questionIcons[index % questionIcons.length]} />
+            </div>
+            <h3>{question.question}</h3>
             <div className="quiz-options">
-              {question.options.map((option, i) => (
+              {question.options.map((option) => (
                 <button
-                  key={i}
+                  key={option}
                   className={`quiz-option ${answers[index] === option ? 'selected' : ''}`}
                   onClick={() => handleAnswerSelection(index, option)}
                 >
@@ -66,11 +82,11 @@ const MovieQuiz: React.FC = () => {
         ))}
       </div>
 
-      {error && <div className="error">{error}</div>}
+      {error && <div className="quiz-error">{error}</div>}
 
       <div className="quiz-footer">
         <button className="quiz-submit" onClick={handleSubmit}>
-          Submit Quiz
+          Reveal My Match
         </button>
       </div>
     </div>

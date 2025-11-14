@@ -1,0 +1,346 @@
+.people-page {
+  --accent-start: #f97316;
+  --accent-end: #ef4444;
+  --accent-shadow: rgba(249, 115, 22, 0.35);
+  --badge-color: #fef3c7;
+  --badge-bg: rgba(0, 0, 0, 0.65);
+  --background-overlay: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.05), transparent 65%);
+  min-height: 100vh;
+  padding: 56px clamp(24px, 5vw, 72px) 64px;
+  background: var(--background-overlay), #07070c;
+  color: #f5f5f5;
+  transition: background 0.3s ease;
+}
+
+.people-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.people-page__headline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+
+.people-page__title {
+  margin: 0;
+  font-size: clamp(2.4rem, 2vw + 1.4rem, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.people-page__subtitle {
+  margin: 0;
+  color: rgba(231, 229, 255, 0.75);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.people-page__summary {
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.7);
+}
+
+.people-page__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+  width: 100%;
+  max-width: 420px;
+}
+
+.people-search {
+  position: relative;
+  width: 100%;
+}
+
+.people-search__input {
+  width: 100%;
+  padding: 12px 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(12, 12, 18, 0.92);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.4);
+}
+
+.people-search__input::placeholder {
+  color: rgba(226, 232, 240, 0.45);
+}
+
+.people-search__input:focus {
+  outline: none;
+  border-color: var(--accent-start);
+  box-shadow: 0 0 0 3px var(--accent-shadow);
+}
+
+.people-search__icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(226, 232, 240, 0.6);
+  font-size: 0.95rem;
+}
+
+.people-search__clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: rgba(226, 232, 240, 0.65);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.people-search__clear:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.people-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.people-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.82);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.people-pill:hover:not(.people-pill--active):not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.people-pill--active {
+  background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+  color: #0f0f12;
+  font-weight: 600;
+  border-color: transparent;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+}
+
+.people-pill:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.people-state {
+  margin: 32px auto 0;
+  max-width: 640px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(226, 232, 240, 0.82);
+}
+
+.people-state--hint {
+  color: #fcd34d;
+  border-color: rgba(252, 211, 77, 0.35);
+  background: rgba(252, 211, 77, 0.1);
+}
+
+.people-state--error {
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.32);
+  background: rgba(248, 113, 113, 0.16);
+}
+
+.people-grid {
+  margin: 36px auto 0;
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.person-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(12, 12, 18, 0.7));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  backdrop-filter: blur(8px);
+}
+
+.person-card__link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.person-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: rgba(13, 13, 21, 0.9);
+}
+
+.person-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.person-card__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--badge-bg);
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--badge-color);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.person-card__meta-pill {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f9fafb;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.person-card__info {
+  padding: 20px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.person-card__name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f8fafc;
+  letter-spacing: 0.01em;
+}
+
+.person-card__meta {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.75);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  min-height: 2.6rem;
+}
+
+.person-card--skeleton {
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.person-card--skeleton .person-card__media,
+.person-card--skeleton .skeleton-line {
+  background: linear-gradient(
+    120deg,
+    rgba(35, 35, 53, 0.3),
+    rgba(24, 24, 36, 0.85),
+    rgba(35, 35, 53, 0.3)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.person-card--skeleton .person-card__info {
+  gap: 14px;
+}
+
+.person-card--skeleton .skeleton-line--title {
+  width: 68%;
+  height: 16px;
+  border-radius: 10px;
+}
+
+.person-card--skeleton .skeleton-line--meta {
+  width: 85%;
+  height: 12px;
+  border-radius: 10px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .people-page__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+  }
+
+  .people-page__controls {
+    align-items: flex-end;
+  }
+}
+
+@media (max-width: 600px) {
+  .people-page {
+    padding: 42px 20px 56px;
+  }
+
+  .people-page__headline {
+    gap: 10px;
+  }
+
+  .people-page__controls {
+    max-width: 100%;
+  }
+
+  .people-grid {
+    gap: 18px;
+  }
+}
+

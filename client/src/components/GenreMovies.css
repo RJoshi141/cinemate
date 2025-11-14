@@ -1,15 +1,13 @@
 /* Common Styling for Movie and Actor Movies List and Cards */
 .genre-movies {
-    padding: 20px;
-    max-width: 100%;
+    padding: 40px clamp(1.5rem, 6vw, 5rem);
+    max-width: 1400px;
     margin: 0 auto;
-    background-color: #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
   }
   .genre-header {
     font-size: 2rem;
-    color: #00aeff; /* Blue color for genre name */
+    color: #b20710; /* Accent color */
     margin-bottom: 20px;
     text-align: center;
   }
@@ -37,68 +35,8 @@
   
 
 
-  .movies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 40px !important; /* Increased gap from 20px to 30px */
-    justify-items: center;
-  }
-  
-  .movie-card {
-    background-color: #222;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    width: 215px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 500px;
-  }
-  
-  .movie-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
-  }
-  
-  .movie-poster {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-bottom: 2px solid #444;
-  }
-  
-  .movie-card h3 {
-    font-size: 18px;
-    margin-top: 10px;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .movie-overview {
-    font-size: 14px;
-    color: #ccc;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    display: flex;
-    line-clamp: 3;
-    box-orient: vertical;
-  }
-  
-  .movie-card p {
-    font-size: 14px;
-    color: #ccc;
-  }
-  
-  .movie-card a {
-    text-decoration: none;
-    color: #00aeff;
-  }
-  
-  .movie-card p strong {
-    color: #fff;
+  .genre-movies .movies {
+    margin-top: 30px;
   }
   
 
@@ -112,7 +50,7 @@
 
 /* General button styling */
 .pagination button {
-  background-color: #1e3a8a; /* Deep blue background */
+  background-color: #7c0d17; /* Accent background */
   color: white;               /* White text */
   border: none;               /* No border */
   padding: 10px 20px;         /* Padding for the buttons */
@@ -125,7 +63,7 @@
 
 /* Styling when hovering over the buttons */
 .pagination button:hover {
-  background-color: #1e40af; /* Lighter blue on hover */
+  background-color: #a3101d; /* Richer red on hover */
   transform: scale(1.05);     /* Slightly enlarges the button */
 }
 .pagination span {
@@ -135,7 +73,7 @@
 
 /* Disable the "Previous" button when on the first page */
 .pagination button:disabled {
-  background-color: #4b6c93;  /* Greyed out button (light blue) */
+  background-color: #5b252b;  /* Muted maroon */
   cursor: not-allowed;        /* Change cursor to not-allowed */
 }
 
