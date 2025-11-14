@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { HashRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import MovieList from './components/MovieList';
 import ActorMovies from './components/ActorMovies';
 import MovieDetail from './components/MovieDetail';
@@ -44,25 +44,6 @@ const ScrollControl: React.FC = () => {
   return null;
 };
 
-// Component to ensure the app always starts on the home page
-const InitialRedirect: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const hasRedirectedRef = useRef(false);
-
-  useEffect(() => {
-    if (hasRedirectedRef.current) return;
-
-    hasRedirectedRef.current = true;
-
-    if (location.pathname !== '/') {
-      navigate('/', { replace: true });
-    }
-  }, [location.pathname, navigate]);
-
-  return null;
-};
-
 const App: React.FC = () => {
   const [isLogoVisible, setIsLogoVisible] = useState(true);
 
@@ -81,7 +62,6 @@ const App: React.FC = () => {
           <>
             <Header />
             <ScrollControl />
-            <InitialRedirect />
             <Routes>
               <Route path="/" element={<MovieList />} />
               <Route path="/movie/:id" element={<MovieDetail />} />
