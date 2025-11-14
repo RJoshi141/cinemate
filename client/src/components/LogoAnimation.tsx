@@ -20,7 +20,8 @@ const LogoAnimation: React.FC = () => {
       <div className="reel">
         <img src={reel} alt="Reel" className="reel-img" />
       </div>
-      <div className="logo-text">Cinemate - Your ulitmate movie guide</div>
+      <div className="logo-text">CINEMATE</div>
+      <p className="logo-subtext">Curating your next cinematic escape</p>
     </div>
   );
 };

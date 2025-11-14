@@ -5,6 +5,10 @@
   padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 6vw, 5rem) 4rem;
   color: #f4f6fb;
   overflow-x: hidden;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(229, 9, 20, 0.28) 0%, rgba(229, 9, 20, 0) 44%),
+    radial-gradient(circle at 82% 12%, rgba(49, 61, 194, 0.22) 0%, rgba(49, 61, 194, 0) 58%),
+    linear-gradient(155deg, #050712 5%, #080b1d 50%, #040516 100%);
 }
 
 .movie-hero {
@@ -235,10 +239,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70px;
-  max-width: 80px;
-  margin-left: 15px;
-  margin-top: -15px;
+  height: 40px;
+  max-width: 40px;
+  margin-top: 12px;
+  margin-right: 10px;
 }
 
 .platform-logos__item img {
@@ -434,7 +438,6 @@
 .recommendations-poster-link {
   display: block;
   width: 100%;
-  margin-left: 30px;
 }
 
 .recommendations-poster {

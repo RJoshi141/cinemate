@@ -149,16 +149,16 @@ const GenreMovies: React.FC = () => {
       </div>
 
       <div className="pagination">
-        <button onClick={() => handlePageChange('prev')} disabled={currentPage === 1}>
-          Previous
+        <button onClick={() => handlePageChange('prev')} disabled={currentPage === 1} aria-label="Previous page">
+          <span aria-hidden="true">‹</span>
         </button>
 
         <div className="page-info">
           Page {currentPage} of {totalPages}
         </div>
 
-        <button onClick={() => handlePageChange('next')} disabled={currentPage === totalPages}>
-          Next
+        <button onClick={() => handlePageChange('next')} disabled={currentPage === totalPages} aria-label="Next page">
+          <span aria-hidden="true">›</span>
         </button>
       </div>
     </div>

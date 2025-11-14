@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faSolidHeart, faMagnifyingGlass, faSliders } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
@@ -15,6 +15,12 @@ interface Movie {
   release_date: string | null;
   vote_average: number;
   genre_ids: number[];
+}
+
+interface QuizRecommendation {
+  params: Record<string, string>;
+  tags: string[];
+  headline: string;
 }
 
 const formatDate = (value?: string | null) => {
@@ -37,7 +43,10 @@ const MovieList: React.FC = () => {
   const [genres, setGenres] = useState<{ id: number; name: string }[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
+  const [quizRecommendation, setQuizRecommendation] = useState<QuizRecommendation | null>(null);
   const { isFavorite, toggleFavorite } = useFavorites();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
@@ -52,8 +61,26 @@ const MovieList: React.FC = () => {
   const handleResetFilters = () => {
     setSearchQuery('');
     setSelectedGenre('');
+    setQuizRecommendation(null);
     setCurrentPage(1);
   };
+
+  const handleClearQuiz = () => {
+    setQuizRecommendation(null);
+    setCurrentPage(1);
+  };
+
+  useEffect(() => {
+    const state = location.state as { quizRecommendation?: QuizRecommendation } | null;
+    if (state?.quizRecommendation) {
+      const incoming = state.quizRecommendation;
+      setQuizRecommendation(incoming);
+      setSearchQuery('');
+      setSelectedGenre('');
+      setCurrentPage(1);
+      navigate(location.pathname, { replace: true });
+    }
+  }, [location, navigate]);
 
   useEffect(() => {
     const apiKey = 'ce08d866531db79a3a3f6c6fa0728fc7';
@@ -67,17 +94,35 @@ const MovieList: React.FC = () => {
       .then((response) => setGenres(response.data.genres))
       .catch((err) => console.error('Error fetching genres:', err));
 
-    // Build URL based on search query, selected genre, and pagination
-    let url = `${process.env.REACT_APP_API_URL}/movie/popular?api_key=${apiKey}&page=${currentPage}`;
-    if (searchQuery) {
-      url = `${process.env.REACT_APP_API_URL}/search/movie?api_key=${apiKey}&query=${searchQuery}&page=${currentPage}`;
+    const params = new URLSearchParams({
+      api_key: apiKey,
+      page: currentPage.toString(),
+    });
+
+    let endpoint = '/movie/popular';
+
+    if (quizRecommendation) {
+      endpoint = '/discover/movie';
+      Object.entries(quizRecommendation.params).forEach(([key, value]) => {
+        if (value) {
+          params.set(key, value);
+        }
+      });
+    } else if (searchQuery) {
+      endpoint = '/search/movie';
+      params.set('query', searchQuery);
     } else if (selectedGenre) {
-      url = `${process.env.REACT_APP_API_URL}/discover/movie?api_key=${apiKey}&with_genres=${selectedGenre}&page=${currentPage}`;
+      endpoint = '/discover/movie';
+      params.set('with_genres', selectedGenre);
+    }
+
+    if (!params.has('include_adult')) {
+      params.set('include_adult', 'false');
     }
 
     // Fetch movies based on URL
     axios
-      .get(url)
+      .get(`${process.env.REACT_APP_API_URL}${endpoint}?${params.toString()}`)
       .then((response) => {
         setMovies(response.data.results);
         setTotalPages(response.data.total_pages);
@@ -88,7 +133,7 @@ const MovieList: React.FC = () => {
         setError('Failed to fetch movie data');
         setLoading(false);
       });
-  }, [searchQuery, selectedGenre, currentPage]);
+  }, [searchQuery, selectedGenre, currentPage, quizRecommendation]);
 
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">{error}</div>;
@@ -158,6 +203,20 @@ const MovieList: React.FC = () => {
         </div>
       )}
 
+      {quizRecommendation && (
+        <div className="quiz-recommendation-banner" aria-live="polite">
+          <div className="quiz-recommendation-copy">
+            <span className="quiz-recommendation-title">{quizRecommendation.headline}</span>
+            {quizRecommendation.tags.length > 0 && (
+              <span className="quiz-recommendation-tags">{quizRecommendation.tags.join(' • ')}</span>
+            )}
+          </div>
+          <button type="button" className="quiz-recommendation-clear" onClick={handleClearQuiz}>
+            Clear quiz picks
+          </button>
+        </div>
+      )}
+
       {/* Movies Section */}
       <div className="movies">
         {movies.length > 0 ? (
@@ -204,14 +263,22 @@ const MovieList: React.FC = () => {
 
       {/* Pagination */}
       <div className="pagination">
-        <button onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)} className="pagination-button">
-          Previous
+        <button
+          onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
+          className="pagination-button pagination-button--nav"
+          aria-label="Previous page"
+        >
+          <span aria-hidden="true">‹</span>
         </button>
         <span>
           {currentPage} of {totalPages}
         </span>
-        <button onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)} className="pagination-button">
-          Next
+        <button
+          onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)}
+          className="pagination-button pagination-button--nav"
+          aria-label="Next page"
+        >
+          <span aria-hidden="true">›</span>
         </button>
       </div>
     </div>

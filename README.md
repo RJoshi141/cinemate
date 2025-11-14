@@ -6,139 +6,43 @@
 
 ---
 
-## 🌟 Website Demo
+## 🌟 Quick Look
 
-### Popular Movies and Favorites
-<img src="client/assets/cinemate_demo_popular_fav_recos.gif" alt="Popular Movies and Favorites" width="600" />
-
-### Directors and Movie Quiz
-<img src="client/assets/cinemate_demo_directors_moviequiz.gif" alt="Directors and Movie Quiz" width="600" />
-
-### Actor and Their Movies
-<img src="client/assets/cinemate_demo_actormovies.gif" alt="Actor and Their Movies" width="600" />
+<img src="client/assets/cinemate_demo_popular_fav_recos.gif" alt="Cinemate in action" width="600" />
 
 ---
 
-## 🎥 Features
-
-### **Movie Discovery**
-- Search for movies by title, genre, or actors.
-- View detailed movie information, including ratings, release dates, and overviews.
-
-### **Personalized Experience**
-- Add movies to your Watchlist for future viewing.
-- Mark favorites to keep track of your top picks.
-
-### **Rich Media Integration**
-- Watch trailers directly on the movie details page.
-- Enjoy high-quality images of movie posters and cast members.
-
-### **Advanced Search Options**
-- Filter movies by genres, actors, and genres.
-- Discover films based on your unique interests.
-- Search movies filtered by the directors.
+## 🎥 Highlights
+- Discover movies by title, genre, actor, or director with rich detail.
+- Save personal watchlists and favorites to stay organized.
+- Watch trailers and browse cinema-quality artwork without leaving the app.
 
 ---
 
 ## 🛠️ Tech Stack
-
-### Frontend
-- **React**: Dynamic and responsive user interface.
-- **React Router**: Seamless navigation between pages.
-- **Axios**: Fetches data from The Movie Database (TMDb) API.
-- **Tailwind CSS**: Modern and responsive styling.
-
-### API
-- **The Movie Database (TMDb)**: Fetches movie details, trailers, and images.
+- **React + TypeScript** for the UI.
+- **React Router** for smooth navigation.
+- **Axios** to connect with **TMDb**.
+- **Tailwind CSS** for styling.
 
 ---
 
-## 🚀 Installation
-
-Follow these steps to set up Cinemate locally:
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/RJoshi141/cinemate.git
-   ```
-
-2. **Navigate to the Client Directory:**
-   ```bash
-   cd cinemate/client
-   ```
-
-3. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
-
-4. **Add API Key:**
-   - Create a `.env` file in the `client` folder.
-   - Add your TMDb API key:
-     ```env
-     REACT_APP_TMDB_API_KEY=your_api_key_here
-     ```
-
-5. **Run the Application:**
-   ```bash
-   npm start
-   ```
-   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-6. **Build for Production:**
-   ```bash
-   npm run build
-   ```
-
----
-
-## 🌐 Deployment
-
-Deploy Cinemate on GitHub Pages:
-
-1. **Build the Project:**
-   ```bash
-   npm run build
-   ```
-
-2. **Navigate to the Build Folder:**
-   ```bash
-   cd build
-   ```
-
-3. **Push to `gh-pages` Branch:**
-   ```bash
-   git init
-   git checkout -b gh-pages
-   git add .
-   git commit -m "Deploy updated build"
-   git remote add origin https://github.com/RJoshi141/cinemate.git
-   git push origin gh-pages --force
-   ```
-
-4. **Verify Deployment:**
-   Visit [https://RJoshi141.github.io/cinemate](https://RJoshi141.github.io/cinemate).
+## 🚀 Quick Start
+```bash
+git clone https://github.com/RJoshi141/cinemate.git
+cd cinemate/client
+npm install
+echo "REACT_APP_TMDB_API_KEY=your_api_key_here" > .env
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
 ## 🤝 Contributing
-
-Contributions are welcome! Follow these steps:
-
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add feature description"
-   ```
-4. Push to your branch:
-   ```bash
-   git push origin feature-name
-   ```
-5. Open a pull request.
+- Fork the repo and create a branch.
+- Commit clearly scoped changes.
+- Open a pull request when you're ready.
 
 ---
 
@@ -162,6 +66,3 @@ For questions or feedback, feel free to reach out:
 - **Ritika Joshi** - [GitHub](https://github.com/RJoshi141)
 
 Happy movie exploring! 🎬
-
-<img src="client/assets/leo.gif" alt="Happy movie exploring!" width="300" />
-

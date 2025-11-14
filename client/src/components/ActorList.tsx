@@ -247,20 +247,11 @@ const ActorList: React.FC = () => {
         <div className="people-grid">
           {actors.map((actor) => {
             const knownFor = formatKnownFor(actor.known_for);
-            const popularity = typeof actor.popularity === 'number' ? Math.round(actor.popularity) : null;
 
             return (
               <div key={actor.id} className="person-card">
                 <Link to={`/actor/${actor.id}/${actor.name}`} className="person-card__link">
                   <div className="person-card__media">
-                    {popularity !== null && (
-                      <span className="person-card__meta-pill">
-                        <span role="img" aria-hidden="true">
-                          ⭐
-                        </span>
-                        {popularity}
-                      </span>
-                    )}
                     <img
                       src={
                         actor.profile_path ? `${IMAGE_BASE_URL}${actor.profile_path}` : PLACEHOLDER_IMAGE

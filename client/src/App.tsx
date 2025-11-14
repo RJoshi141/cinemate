@@ -22,12 +22,8 @@ const ScrollControl: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Disable scroll for the Genre List page only
-    if (location.pathname === '/genres') {
-      document.body.style.overflow = 'hidden'; // Disable scroll on genre list page
-    } else {
-      document.body.style.overflow = 'auto'; // Enable scroll on all other pages
-    }
+    document.body.style.overflow = 'auto';
+    document.documentElement.style.overflow = 'auto';
 
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: 'auto' });
@@ -38,7 +34,11 @@ const ScrollControl: React.FC = () => {
     // Wait for the next frame so new layout can render first
     const rafId = requestAnimationFrame(scrollToTop);
 
-    return () => cancelAnimationFrame(rafId);
+    return () => {
+      cancelAnimationFrame(rafId);
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
   }, [location.pathname]);
 
   return null;

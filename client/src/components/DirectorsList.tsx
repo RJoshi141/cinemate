@@ -330,20 +330,11 @@ const DirectorsList: React.FC = () => {
         <div className="people-grid">
           {directors.map((director) => {
             const knownFor = formatKnownFor(director.known_for);
-            const popularity = typeof director.popularity === 'number' ? Math.round(director.popularity) : null;
 
             return (
               <div key={director.id} className="person-card">
                 <Link to={`/director/${director.id}`} className="person-card__link">
                   <div className="person-card__media">
-                    {popularity !== null && (
-                      <span className="person-card__meta-pill">
-                        <span role="img" aria-hidden="true">
-                          ⭐
-                        </span>
-                        {popularity}
-                      </span>
-                    )}
                     <img
                       src={
                         director.profile_path
